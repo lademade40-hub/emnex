@@ -87,7 +87,7 @@ export function Hero() {
       </div>
 
       {/* --------------------------------- layered mockup composition */}
-      <div className="container-x relative pb-16 md:pb-24">
+      <div className="container-x relative pb-12 md:pb-16">
         <motion.div
           {...(reduce
             ? {}
@@ -99,14 +99,8 @@ export function Hero() {
           className="relative"
         >
           <div className="relative flex justify-center">
-            {/* Side mockup — left (Velmora Estates) */}
-            <a
-              href={velmora.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${velmora.name} live website`}
-              className="group absolute left-0 top-[64px] hidden w-[30%] lg:block"
-            >
+            {/* Side mockup — left (Velmora Estates) — static visual, not a link */}
+            <div className="absolute left-0 top-[64px] hidden w-[30%] lg:block">
               <BrowserFrame
                 src={velmora.heroShot}
                 alt={`${velmora.name} — live website preview`}
@@ -114,16 +108,10 @@ export function Hero() {
                 sizes="30vw"
                 className="shadow-[0_2px_6px_rgba(21,21,21,0.05),0_30px_60px_-30px_rgba(21,21,21,0.3)]"
               />
-            </a>
+            </div>
 
-            {/* Side mockup — right (Marlowe & Hart) */}
-            <a
-              href={marlowe.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${marlowe.name} live website`}
-              className="group absolute right-0 top-[92px] hidden w-[30%] lg:block"
-            >
+            {/* Side mockup — right (Marlowe & Hart) — static visual, not a link */}
+            <div className="absolute right-0 top-[92px] hidden w-[30%] lg:block">
               <BrowserFrame
                 src={marlowe.heroShot}
                 alt={`${marlowe.name} — live website preview`}
@@ -131,16 +119,10 @@ export function Hero() {
                 sizes="30vw"
                 className="shadow-[0_2px_6px_rgba(21,21,21,0.05),0_30px_60px_-30px_rgba(21,21,21,0.3)]"
               />
-            </a>
+            </div>
 
-            {/* Central mockup — Wandermark */}
-            <a
-              href={wandermark.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`View ${wandermark.name} live website`}
-              className="group relative z-10 w-full lg:w-[54%]"
-            >
+            {/* Central mockup — Wandermark — static visual, not a link */}
+            <div className="relative z-10 w-full lg:w-[54%]">
               <BrowserFrame
                 src={wandermark.heroShot}
                 alt={`${wandermark.name} — live website preview`}
@@ -149,11 +131,11 @@ export function Hero() {
                 sizes="(min-width: 1024px) 54vw, 100vw"
                 className="shadow-[0_4px_10px_rgba(21,21,21,0.07),0_70px_130px_-40px_rgba(21,21,21,0.45)]"
               />
-            </a>
+            </div>
           </div>
 
           {/* Caption */}
-          <p className="mt-8 text-center font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-clay/80">
+          <p className="mt-6 text-center font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-clay/80">
             Real client work — live websites, not mock-ups
           </p>
         </motion.div>

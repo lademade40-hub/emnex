@@ -182,7 +182,7 @@ export function Header() {
 export function Footer() {
   return (
     <footer className="bg-ink text-ivory">
-      <div className="container-x pb-10 pt-16 md:pt-20">
+      <div className="container-x pb-10 pt-14 md:pt-16">
         <div className="grid gap-12 md:grid-cols-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-5">
@@ -250,7 +250,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-16 flex flex-col gap-3 border-t border-ivory/10 pt-7 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-12 flex flex-col gap-3 border-t border-ivory/10 pt-7 sm:flex-row sm:items-center sm:justify-between">
           <p className="font-sans text-[12.5px] text-ivory/45">
             © {new Date().getFullYear()} EMNEX AI. All rights reserved.
           </p>

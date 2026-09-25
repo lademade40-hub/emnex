@@ -71,3 +71,23 @@ Stage Summary:
 - Portfolio is now a curated 2-column editorial grid of exactly 5 featured builds; the section reads as a professional agency portfolio instead of a vertical list.
 - The 4 non-featured client sites remain in data.ts (indices 06–09) and can be re-enabled by setting featured: true.
 - Filters now match the user's list: ALL / TRAVEL / REAL ESTATE / HOSPITALITY / CREATIVE / BUSINESS / NONPROFIT.
+
+---
+Task ID: 5
+Agent: Super Z (main agent)
+Task: Global spacing correction (compact premium rhythm, no giant blank areas) + make the hero mockups static images (remove clickable/link behaviour). No redesign, no content changes, no new sections beyond restoring the section the user references.
+
+Work Log:
+- hero.tsx: all three layered mockups (Velmora, Marlowe, central Wandermark) converted from <a href> wrappers to plain <div> — no link, no click, no cursor, no group-hover scale; hero now contains only the two CTA buttons (#contact, #portfolio). Composition container pb-16/24 → pb-12/16, caption mt-8 → mt-6 (tighter hero → ticker → problem transition).
+- sections.tsx: Problem pt-20 pb-16 md:pt-28 md:pb-24 (was py-24/32 — bottom "black rectangle" fixed), intro→rows mt-16/20 → mt-12/16; Solution py-16 md:py-24, paragraph→benefits mt-16/20 → mt-12/14 (label→headline→paragraph gaps per spec); Services py-16 md:py-24, list mt-12/14, footer CTA block mt-12 pt-9; Process pt-20 pb-16 md:pt-28 md:pb-24, steps mt-12/16, note mt-12 pt-9.
+- work.tsx: SelectedWork pt-14 pb-16 md:pt-20 md:pb-24 (reduced top padding per complaint), desc→filters mt-10, filters→grid pt-12, grid rows gap-y-14 md:gap-y-20 (was 64/96/112 — now within the 60-90px spec), card image→info pt-6, title→category mt-3, category→desc mt-3.5, desc→View Project pt-6.
+- Restored "A closer look at three projects" (CloserLook) between Process and About per the user's required page flow: Wandermark, Velmora Estates, Marlowe & Hart; large inner-page mockups (~66% width, dominant), number/category/name/description/View Project secondary; first project immediately after heading (mt-10); rows py-12 lg:py-14; altShot images so visuals differ from the grid cards; mockups remain clickable (portfolio projects).
+- trust.tsx: About/Faq py-16 md:py-24 (About already grid items-center — balanced vertical alignment), FinalCta pt-20 pb-16 md:pt-28 md:pb-24, button mt-10, email note mt-8.
+- chrome.tsx: Footer pt-14 md:pt-16, legal row mt-12 (tighter CTA→footer).
+- Verified via agent-browser at 1440x900 + 390x844: hero contains exactly 2 links (both CTAs); section flow = Hero → Everyday Problem → Way Forward → Selected Work → Services → How It Works → Behind the Work → About → FAQ → Start the Conversation → Footer; all transitions visually tight (combined same-bg gaps now ~160-192px, was 256px+); no horizontal overflow; zero console errors.
+- bun run lint clean; bun run build compiled successfully.
+
+Stage Summary:
+- Page now reads as one continuous art-directed composition: uniform section system (normal 64/96px, dark editorial 80/112px padding), spec-compliant intra-section spacing, no forced viewport heights.
+- Hero imagery is decorative-only; portfolio cards and CloserLook rows remain the clickable project surfaces.
+- NOTE: the live domain had been serving a stale FC snapshot (user screenshots matched the Task-1 build); this deploy re-triggers publication of the current code.

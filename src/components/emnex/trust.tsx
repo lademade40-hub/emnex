@@ -13,7 +13,7 @@ import { ButtonPrimary, Kicker, Reveal, TextLink } from "./ui";
 export function About() {
   return (
     <section id="about" className="bg-ivory">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x py-16 md:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Founder photograph — editorial treatment, not a card */}
           <Reveal className="lg:col-span-6">
@@ -86,7 +86,7 @@ export function Faq() {
 
   return (
     <section id="faq" className="bg-ivory">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x py-16 md:py-24">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           {/* Heading column */}
           <div className="lg:col-span-5">
@@ -184,7 +184,7 @@ export function Faq() {
 export function FinalCta() {
   return (
     <section id="contact" className="bg-ink text-ivory">
-      <div className="container-x py-24 text-center md:py-32">
+      <div className="container-x pt-20 pb-16 text-center md:pt-28 md:pb-24">
         <Reveal>
           <p className="kicker rule-dot justify-center text-ivory/60">
             Start the Conversation
@@ -203,7 +203,7 @@ export function FinalCta() {
           </p>
         </Reveal>
         <Reveal delay={0.2}>
-          <div className="mt-11 flex justify-center">
+          <div className="mt-10 flex justify-center">
             <ButtonPrimary
               href={waLink()}
               external
@@ -215,7 +215,7 @@ export function FinalCta() {
           </div>
         </Reveal>
         <Reveal delay={0.26}>
-          <p className="mt-9 font-sans text-[14px] text-ivory/50">
+          <p className="mt-8 font-sans text-[14px] text-ivory/50">
             Prefer email?{" "}
             <a
               href={`mailto:${EMAIL}`}

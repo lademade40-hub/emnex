@@ -11,7 +11,7 @@ import { ButtonPrimary, Kicker, Reveal } from "./ui";
 export function Problem() {
   return (
     <section className="bg-ink text-ivory">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="max-w-[780px]">
           <Reveal>
             <Kicker tone="dark">The Everyday Problem</Kicker>
@@ -34,7 +34,7 @@ export function Problem() {
           </Reveal>
         </div>
 
-        <div className="mt-16 md:mt-20">
+        <div className="mt-12 md:mt-16">
           {PROBLEMS.map((p, i) => (
             <Reveal key={p.index} delay={0.05 * i} y={16}>
               <div
@@ -67,7 +67,7 @@ export function Problem() {
 export function Solution() {
   return (
     <section className="bg-ivory">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x py-16 md:py-24">
         <div className="max-w-[780px]">
           <Reveal>
             <Kicker>The Way Forward</Kicker>
@@ -90,7 +90,7 @@ export function Solution() {
           </Reveal>
         </div>
 
-        <div className="mt-16 md:mt-20">
+        <div className="mt-12 md:mt-14">
           {SOLUTIONS.map((s, i) => (
             <Reveal key={s.index} delay={0.05 * i} y={16}>
               <div
@@ -123,7 +123,7 @@ export function Solution() {
 export function Services() {
   return (
     <section id="services" className="bg-ivory">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x py-16 md:py-24">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-[640px]">
             <Reveal>
@@ -144,7 +144,7 @@ export function Services() {
           </Reveal>
         </div>
 
-        <div className="mt-14 md:mt-16">
+        <div className="mt-12 md:mt-14">
           {SERVICES.map((s, i) => (
             <Reveal key={s.index} delay={0.04 * i} y={14}>
               <a
@@ -173,7 +173,7 @@ export function Services() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-14 flex flex-col gap-7 border-t border-line pt-10 md:flex-row md:items-center md:justify-between">
+          <div className="mt-12 flex flex-col gap-7 border-t border-line pt-9 md:flex-row md:items-center md:justify-between">
             <div className="max-w-[520px]">
               <h3 className="font-serif text-[22px] font-normal text-ink">
                 Not sure which one you need?
@@ -200,7 +200,7 @@ export function Services() {
 export function Process() {
   return (
     <section id="how-it-works" className="bg-ink text-ivory">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="max-w-[720px]">
           <Reveal>
             <Kicker tone="dark">How It Works</Kicker>
@@ -212,7 +212,7 @@ export function Process() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid gap-x-10 gap-y-12 md:mt-20 md:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-12 grid gap-x-10 gap-y-12 md:mt-16 md:grid-cols-2 lg:grid-cols-4">
           {PROCESS_STEPS.map((step, i) => (
             <Reveal key={step.index} delay={0.07 * i} y={18}>
               <div className="border-t border-ivory/[0.16] pt-7">
@@ -232,7 +232,7 @@ export function Process() {
         </div>
 
         <Reveal delay={0.1}>
-          <div className="mt-16 flex flex-col gap-7 border-t border-ivory/10 pt-10 md:flex-row md:items-center md:justify-between md:gap-12">
+          <div className="mt-12 flex flex-col gap-7 border-t border-ivory/10 pt-9 md:flex-row md:items-center md:justify-between md:gap-12">
             <p className="max-w-[640px] font-sans text-[14.5px] leading-relaxed text-ivory/55">
               Before we begin: hosting options, domain costs, revision scope,
               and delivery timelines are all confirmed with you up front, so

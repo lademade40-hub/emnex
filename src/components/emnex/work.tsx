@@ -28,7 +28,7 @@ export function SelectedWork() {
 
   return (
     <section id="portfolio" className="bg-ivory">
-      <div className="container-x py-24 md:py-32">
+      <div className="container-x pt-14 pb-16 md:pt-20 md:pb-24">
         {/* Heading */}
         <div className="max-w-[760px]">
           <Reveal>
@@ -52,7 +52,7 @@ export function SelectedWork() {
           <div
             role="tablist"
             aria-label="Filter projects by industry"
-            className="mt-12 flex gap-x-8 gap-y-3 overflow-x-auto border-y border-line py-5 md:flex-wrap md:overflow-visible"
+            className="mt-10 flex gap-x-8 gap-y-3 overflow-x-auto border-y border-line py-5 md:flex-wrap md:overflow-visible"
           >
             {FILTERS.map((f) => {
               const active = filter === f.key;
@@ -106,7 +106,7 @@ export function SelectedWork() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-x-12 gap-y-16 pt-14 md:grid-cols-2 md:gap-y-24 lg:gap-x-20 lg:gap-y-28">
+              <div className="grid grid-cols-1 gap-x-12 gap-y-14 pt-12 md:grid-cols-2 md:gap-y-20 lg:gap-x-20">
                 {visible.map((p, i) => (
                   <Reveal key={p.id} delay={Math.min(i, 5) * 0.07} y={20} className="h-full">
                     <ProjectCard p={p} />
@@ -145,7 +145,7 @@ function ProjectCard({ p }: { p: Project }) {
         />
 
         {/* Project information — secondary, underneath the image */}
-        <div className="flex flex-1 flex-col pt-7">
+        <div className="flex flex-1 flex-col pt-6">
           <span className="font-serif text-[15px] italic leading-none text-ember">
             {p.index}
           </span>
@@ -153,10 +153,10 @@ function ProjectCard({ p }: { p: Project }) {
             {p.name}
           </h3>
           <p className="kicker mt-3 text-clay">{p.category}</p>
-          <p className="mt-4 max-w-[430px] font-sans text-[15px] leading-relaxed text-clay">
+          <p className="mt-3.5 max-w-[430px] font-sans text-[15px] leading-relaxed text-clay">
             {p.description}
           </p>
-          <span className="mt-auto inline-flex items-center gap-2 pt-7 font-sans text-[12.5px] font-semibold uppercase tracking-[0.16em] text-charcoal/55 transition-colors duration-300 group-hover:text-ember">
+          <span className="mt-auto inline-flex items-center gap-2 pt-6 font-sans text-[12.5px] font-semibold uppercase tracking-[0.16em] text-charcoal/55 transition-colors duration-300 group-hover:text-ember">
             View Project
             <ArrowRight
               className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5"
@@ -192,5 +192,83 @@ function EditorialSlot() {
         </div>
       </div>
     </Reveal>
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* A closer look — three projects, large mockups, text secondary.     */
+/* ---------------------------------------------------------------- */
+
+export function CloserLook() {
+  const featured = PROJECTS.slice(0, 3);
+
+  return (
+    <section className="bg-ivory">
+      <div className="container-x py-16 md:py-24">
+        <div className="max-w-[760px]">
+          <Reveal>
+            <Kicker>Behind the Work</Kicker>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
+              A closer look at three projects.
+            </h2>
+          </Reveal>
+        </div>
+
+        {/* First project begins immediately after the heading */}
+        <div className="mt-10">
+          {featured.map((p, i) => {
+            const flip = i % 2 === 1;
+            return (
+              <Reveal key={p.id} y={20}>
+                <article
+                  className={`grid items-center gap-8 py-12 lg:grid-cols-12 lg:gap-12 lg:py-14 ${
+                    i > 0 ? "border-t border-line" : ""
+                  }`}
+                >
+                  {/* LARGE mockup — the dominant visual */}
+                  <a
+                    href={p.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`View ${p.name} live website`}
+                    className={`group block lg:col-span-8 ${flip ? "lg:order-2" : ""}`}
+                  >
+                    <BrowserFrame
+                      src={p.altShot}
+                      alt={`${p.name} — inside pages of the live website`}
+                      domain={p.domain}
+                      sizes="(min-width: 1024px) 66vw, 100vw"
+                    />
+                  </a>
+
+                  {/* Secondary text column */}
+                  <div className={`lg:col-span-4 ${flip ? "lg:order-1" : ""}`}>
+                    <div className="flex items-baseline gap-4">
+                      <span className="font-serif text-[15px] italic text-ember">
+                        {p.index}
+                      </span>
+                      <span className="kicker text-clay">{p.category}</span>
+                    </div>
+                    <h3 className="mt-4 font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-normal uppercase leading-[1.05] tracking-[0.005em] text-ink">
+                      {p.name}
+                    </h3>
+                    <p className="mt-5 max-w-[400px] font-sans text-[15.5px] leading-relaxed text-clay">
+                      {p.description}
+                    </p>
+                    <div className="mt-6">
+                      <TextLink href={p.url} external>
+                        View Project
+                      </TextLink>
+                    </div>
+                  </div>
+                </article>
+              </Reveal>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }

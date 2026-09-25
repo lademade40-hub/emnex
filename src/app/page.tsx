@@ -2,7 +2,7 @@ import { Footer, Header } from "@/components/emnex/chrome";
 import { Hero } from "@/components/emnex/hero";
 import { Problem, Process, Services, Solution } from "@/components/emnex/sections";
 import { About, Faq, FinalCta } from "@/components/emnex/trust";
-import { SelectedWork } from "@/components/emnex/work";
+import { CloserLook, SelectedWork } from "@/components/emnex/work";
 
 export default function Home() {
   return (
@@ -15,6 +15,7 @@ export default function Home() {
         <SelectedWork />
         <Services />
         <Process />
+        <CloserLook />
         <About />
         <Faq />
         <FinalCta />
