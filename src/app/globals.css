@@ -1,0 +1,211 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============================================================
+   EMNEX AI — Editorial Design System
+   Ivory + Ink, with a restrained burnt-red accent.
+   ============================================================ */
+
+@theme inline {
+  /* Typography */
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", sans-serif;
+  --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
+
+  /* Brand palette */
+  --color-ivory: #f3efe7;
+  --color-ink: #151515;
+  --color-charcoal: #34312d;
+  --color-clay: #716b63;
+  --color-line: #d8d1c6;
+  --color-ember: #b84a32;
+  --color-paper: #ffffff;
+  --color-ivory-deep: #eae4d8;
+
+  /* shadcn token bridge (kept for component compatibility) */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.25rem;
+  --background: #f3efe7;
+  --foreground: #151515;
+  --card: #ffffff;
+  --card-foreground: #151515;
+  --popover: #ffffff;
+  --popover-foreground: #151515;
+  --primary: #151515;
+  --primary-foreground: #f3efe7;
+  --secondary: #eae4d8;
+  --secondary-foreground: #151515;
+  --muted: #eae4d8;
+  --muted-foreground: #716b63;
+  --accent: #b84a32;
+  --accent-foreground: #f3efe7;
+  --destructive: #b84a32;
+  --border: #d8d1c6;
+  --input: #d8d1c6;
+  --ring: #b84a32;
+  --sidebar: #f3efe7;
+  --sidebar-foreground: #151515;
+  --sidebar-primary: #151515;
+  --sidebar-primary-foreground: #f3efe7;
+  --sidebar-accent: #eae4d8;
+  --sidebar-accent-foreground: #151515;
+  --sidebar-border: #d8d1c6;
+  --sidebar-ring: #b84a32;
+}
+
+.dark {
+  --background: #151515;
+  --foreground: #f3efe7;
+  --card: #1e1e1c;
+  --card-foreground: #f3efe7;
+  --popover: #1e1e1c;
+  --popover-foreground: #f3efe7;
+  --primary: #f3efe7;
+  --primary-foreground: #151515;
+  --secondary: #232320;
+  --secondary-foreground: #f3efe7;
+  --muted: #232320;
+  --muted-foreground: #a8a29a;
+  --accent: #b84a32;
+  --accent-foreground: #f3efe7;
+  --destructive: #b84a32;
+  --border: rgba(243, 239, 231, 0.14);
+  --input: rgba(243, 239, 231, 0.14);
+  --ring: #b84a32;
+  --sidebar: #151515;
+  --sidebar-foreground: #f3efe7;
+  --sidebar-primary: #f3efe7;
+  --sidebar-primary-foreground: #151515;
+  --sidebar-accent: #232320;
+  --sidebar-accent-foreground: #f3efe7;
+  --sidebar-border: rgba(243, 239, 231, 0.14);
+  --sidebar-ring: #b84a32;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 88px;
+  }
+
+  body {
+    @apply bg-ivory text-ink;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: #b84a32;
+    color: #f3efe7;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Layout container */
+  .container-x {
+    @apply mx-auto w-full max-w-[1240px] px-6 md:px-10;
+  }
+
+  /* Editorial micro label */
+  .kicker {
+    @apply font-sans text-[11px] font-medium uppercase tracking-[0.22em];
+  }
+
+  /* Thin rule under section kickers */
+  .rule-dot::before {
+    content: "";
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 9999px;
+    background: #b84a32;
+    margin-right: 12px;
+    vertical-align: middle;
+    transform: translateY(-1px);
+  }
+
+  /* Editorial link with animated arrow */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 font-sans text-[13px] font-semibold uppercase tracking-[0.16em] text-ink transition-colors duration-300;
+  }
+  .link-arrow .arrow {
+    @apply transition-transform duration-300 ease-out;
+  }
+  .link-arrow:hover .arrow {
+    transform: translateX(5px);
+  }
+
+  /* Slow editorial marquee */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: emnex-marquee 46s linear infinite;
+  }
+  .marquee:hover .marquee-track {
+    animation-play-state: paused;
+  }
+  @keyframes emnex-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+    }
+  }
+}
