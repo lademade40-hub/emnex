@@ -19,3 +19,20 @@ Stage Summary:
 - Deliverable: rebuilt EMNEX AI homepage — editorial ivory+ink design system, real project screenshots as the visual core, all original copy/links/WhatsApp CTAs preserved.
 - Key files: src/app/page.tsx, src/app/layout.tsx, src/app/globals.css, src/components/emnex/* (data, ui, chrome, hero, sections, work, trust), public/projects/*.jpg (real screenshots), src/fonts/*.woff2.
 - Palette discipline held: ~75% ivory / 20% ink / <5% ember; no gradients, no glow, no AI clichés.
+
+---
+Task ID: 2
+Agent: Super Z (main agent)
+Task: Keep the site live at https://emnexaif.space-z.ai/ (user's permanent link attached to all their websites) and ensure that URL serves the final rebuilt design.
+
+Work Log:
+- Diagnosed deployment state: live domain was serving an intermediate rebuild snapshot (Cloudinary AI images + Springwell Foundation), while the final rebuild (real screenshots) existed only in the workspace.
+- Verified rebuild integrity vs original site: WhatsApp CTA (wa.me/2348162983333), all 5 project links (Wandermark e1q3g8174391-d, Velmora c1t3f82gps61-d, Marlowe & Hart q193a8gadev0-d, Sizzle Stack p1d3y8hn52n0-d, Vanta c1k3y83101a1-d), socials (Instagram/Behance/Contra/Facebook), 7 services — all preserved.
+- Ran eslint (clean) and full production build (compiled successfully, standalone + static generated).
+- Triggered platform deployment via Complete; confirmed working tree fully committed (281482a, 11:18 UTC): 7 emnex components, 10 real screenshots in public/projects, 0 cloudinary refs.
+- Confirmed local serving chain (Caddy :81 → Next :3000) serves the final build with all real screenshot assets at HTTP 200.
+- Polled live domain repeatedly: FC (Alibaba Cloud Function Compute) still serving old snapshot at time of session end; deployment propagation is platform-side.
+
+Stage Summary:
+- The link the user requires is unchanged: https://emnexaif.space-z.ai/ — no domain change needed; it is the deployment target of this project.
+- Final rebuild code is committed and build-verified; the platform's FC redeploy picks it up from the committed state (user may need to press Publish/Deploy in workspace UI if propagation is delayed).
