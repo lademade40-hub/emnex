@@ -1,17 +1,28 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 import { useState } from "react";
-import { FILTERS, PROJECTS, waLink, type FilterKey } from "./data";
+import {
+  FILTERS,
+  PROJECTS,
+  waLink,
+  type FilterKey,
+  type Project,
+} from "./data";
 import { BrowserFrame, Kicker, Reveal, TextLink } from "./ui";
 
 /* ---------------------------------------------------------------- */
-/* Selected Work — five projects, curated editorial portfolio        */
+/* Selected Work — two-column editorial grid, five featured builds.   */
+/* Row 1: Wandermark | Velmora · Row 2: Marlowe & Hart | Sizzle Stack */
+/* Row 3: Vanta Motorgroup | quiet editorial note.                    */
 /* ---------------------------------------------------------------- */
+
+const FEATURED = PROJECTS.filter((p) => p.featured);
 
 export function SelectedWork() {
   const [filter, setFilter] = useState<FilterKey>("all");
-  const visible = PROJECTS.filter(
+  const visible = FEATURED.filter(
     (p) => filter === "all" || p.filter === filter
   );
 
@@ -36,7 +47,7 @@ export function SelectedWork() {
           </Reveal>
         </div>
 
-        {/* Editorial filter — magazine text navigation */}
+        {/* Editorial filter — typography + underline, never pills */}
         <Reveal delay={0.18}>
           <div
             role="tablist"
@@ -70,14 +81,14 @@ export function SelectedWork() {
           </div>
         </Reveal>
 
-        {/* Projects */}
+        {/* Two-column editorial grid */}
         <AnimatePresence mode="wait">
           <motion.div
             key={filter}
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           >
             {visible.length === 0 ? (
               <div className="border-b border-line py-20 text-center">
@@ -95,65 +106,91 @@ export function SelectedWork() {
                 </div>
               </div>
             ) : (
-              visible.map((p, i) => {
-                const flip = i % 2 === 1;
-                return (
-                  <article
-                    key={p.id}
-                    className="grid items-center gap-9 py-14 lg:grid-cols-12 lg:gap-14 lg:py-[72px] md:py-16"
-                  >
-                    {/* Large mockup — the visual does the selling */}
-                    <a
-                      href={p.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label={`View ${p.name} live website`}
-                      className={`group block lg:col-span-7 ${
-                        flip ? "lg:order-2" : ""
-                      }`}
-                    >
-                      <BrowserFrame
-                        src={p.heroShot}
-                        alt={`${p.name} — live website preview`}
-                        domain={p.domain}
-                        sizes="(min-width: 1024px) 58vw, 100vw"
-                      />
-                    </a>
-
-                    {/* Project information — secondary */}
-                    <div
-                      className={`lg:col-span-5 ${flip ? "lg:order-1" : ""}`}
-                    >
-                      <div className="flex items-baseline gap-4">
-                        <span className="font-serif text-[15px] italic text-ember">
-                          {p.index}
-                        </span>
-                        <span className="kicker text-clay">
-                          {p.category}
-                        </span>
-                      </div>
-                      <h3 className="mt-4 font-serif text-[clamp(1.9rem,3.4vw,2.75rem)] font-normal leading-[1.08] tracking-[-0.01em] text-ink">
-                        {p.name}
-                      </h3>
-                      <p className="mt-5 max-w-[430px] font-sans text-[15.5px] leading-relaxed text-clay">
-                        {p.description}
-                      </p>
-                      <div className="mt-8 flex flex-wrap items-center gap-x-9 gap-y-4">
-                        <TextLink href={p.url} external>
-                          View Project
-                        </TextLink>
-                        <TextLink href={waLink(p.name)} external>
-                          Discuss a Similar Project
-                        </TextLink>
-                      </div>
-                    </div>
-                  </article>
-                );
-              })
+              <div className="grid grid-cols-1 gap-x-12 gap-y-16 pt-14 md:grid-cols-2 md:gap-y-24 lg:gap-x-20 lg:gap-y-28">
+                {visible.map((p, i) => (
+                  <Reveal key={p.id} delay={Math.min(i, 5) * 0.07} y={20} className="h-full">
+                    <ProjectCard p={p} />
+                  </Reveal>
+                ))}
+                {filter === "all" && <EditorialSlot />}
+              </div>
             )}
           </motion.div>
         </AnimatePresence>
       </div>
     </section>
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* Project card — large mockup first, minimal metadata underneath.    */
+/* ---------------------------------------------------------------- */
+
+function ProjectCard({ p }: { p: Project }) {
+  return (
+    <article className="group h-full">
+      <a
+        href={p.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`View the ${p.name} live website`}
+        className="flex h-full flex-col"
+      >
+        {/* The mockup — the visual does the selling */}
+        <BrowserFrame
+          src={p.heroShot}
+          alt={`${p.name} — live website designed by EMNEX AI`}
+          domain={p.domain}
+          sizes="(min-width: 768px) 46vw, 100vw"
+        />
+
+        {/* Project information — secondary, underneath the image */}
+        <div className="flex flex-1 flex-col pt-7">
+          <span className="font-serif text-[15px] italic leading-none text-ember">
+            {p.index}
+          </span>
+          <h3 className="mt-3 font-serif text-[clamp(1.65rem,2.5vw,2.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink transition-transform duration-500 ease-out group-hover:translate-x-1">
+            {p.name}
+          </h3>
+          <p className="kicker mt-3 text-clay">{p.category}</p>
+          <p className="mt-4 max-w-[430px] font-sans text-[15px] leading-relaxed text-clay">
+            {p.description}
+          </p>
+          <span className="mt-auto inline-flex items-center gap-2 pt-7 font-sans text-[12.5px] font-semibold uppercase tracking-[0.16em] text-charcoal/55 transition-colors duration-300 group-hover:text-ember">
+            View Project
+            <ArrowRight
+              className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5"
+              strokeWidth={1.75}
+            />
+          </span>
+        </div>
+      </a>
+    </article>
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* Sixth cell — quiet editorial note beside Vanta Motorgroup.         */
+/* ---------------------------------------------------------------- */
+
+function EditorialSlot() {
+  return (
+    <Reveal delay={0.32} y={20} className="h-full">
+      <div className="flex h-full flex-col justify-center py-6">
+        <span className="h-px w-14 bg-ember" aria-hidden="true" />
+        <p className="mt-8 max-w-[400px] font-serif text-[clamp(1.5rem,2.2vw,2rem)] font-normal leading-[1.22] text-charcoal">
+          Every website on this page was designed, built and launched by EMNEX
+          AI.
+        </p>
+        <p className="mt-4 max-w-[380px] font-sans text-[15px] leading-relaxed text-clay">
+          Yours could be the next one here.
+        </p>
+        <div className="mt-9">
+          <TextLink href={waLink()} external>
+            Start Your Project
+          </TextLink>
+        </div>
+      </div>
+    </Reveal>
   );
 }

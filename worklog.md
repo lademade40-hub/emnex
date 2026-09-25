@@ -55,3 +55,19 @@ Work Log:
 Stage Summary:
 - Portfolio is now a single unified editorial section with all 9 client websites, each appearing once, with real screenshots.
 - Client-site credit change (emnexaif → emnexaii/#contact) must be applied in each client workspace; instruction text delivered to user.
+
+---
+Task ID: 4
+Agent: Super Z (main agent)
+Task: Transform Selected Work from an alternating one-per-row list into a professional 2-column row+column editorial grid with exactly 5 featured projects (per user's explicit new spec, superseding the 9-project list).
+
+Work Log:
+- data.ts: added featured?: boolean to Project; marked Wandermark/Velmora/Marlowe/SizzleStack/Vanta as featured: true (Kova/Wrenfield/Ember Roast/Voyara stay in data but off the homepage grid); re-added "nonprofit" to FilterKey + FILTERS (user's 7-filter list); shortened the 5 featured descriptions to the user's editorial tone (e.g. "Explore the world through a thoughtful digital experience.").
+- work.tsx rewritten: grid grid-cols-1 md:grid-cols-2, gap-x-12 lg:gap-x-20 (columns ≈46% of the 1240px container), gap-y-16 md:gap-y-24 lg:gap-y-28; card = BrowserFrame mockup (16:10, matches 1440x900 screenshots → zero crop) + index (ember italic serif) + name (serif, group-hover:translate-x-1) + category kicker + short description + View Project → (charcoal/55 → ember + arrow shift on hover, mt-auto aligned); row 3 = Vanta | quiet editorial element (ember rule + serif statement + Start Your Project WhatsApp CTA, only in ALL view); empty state kept for categories with no work; AnimatePresence fade + staggered Reveal per card.
+- Verified via agent-browser at 1440x900 and 390x844: rows render Wandermark|Velmora, Marlowe|Sizzle, Vanta|editorial; DOM order 01–05 with correct live URLs; each project appears exactly once; Travel filter → only Wandermark; Nonprofit → graceful empty state; no horizontal overflow on mobile; zero console errors.
+- bun run lint clean; bun run build compiled successfully (static prerender).
+
+Stage Summary:
+- Portfolio is now a curated 2-column editorial grid of exactly 5 featured builds; the section reads as a professional agency portfolio instead of a vertical list.
+- The 4 non-featured client sites remain in data.ts (indices 06–09) and can be re-enabled by setting featured: true.
+- Filters now match the user's list: ALL / TRAVEL / REAL ESTATE / HOSPITALITY / CREATIVE / BUSINESS / NONPROFIT.

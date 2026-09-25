@@ -36,7 +36,8 @@ export type FilterKey =
   | "realestate"
   | "hospitality"
   | "creative"
-  | "business";
+  | "business"
+  | "nonprofit";
 
 export const FILTERS: { key: FilterKey; label: string }[] = [
   { key: "all", label: "All" },
@@ -45,6 +46,7 @@ export const FILTERS: { key: FilterKey; label: string }[] = [
   { key: "hospitality", label: "Hospitality" },
   { key: "creative", label: "Creative" },
   { key: "business", label: "Business" },
+  { key: "nonprofit", label: "Nonprofit" },
 ];
 
 export interface Project {
@@ -53,6 +55,7 @@ export interface Project {
   name: string;
   category: string;
   filter: Exclude<FilterKey, "all">;
+  featured?: boolean;
   url: string;
   domain: string | null;
   description: string;
@@ -60,7 +63,8 @@ export interface Project {
   altShot: string;
 }
 
-/* The full portfolio — every website designed & built by EMNEX AI. */
+/* The full portfolio — every website designed & built by EMNEX AI.
+   featured: true → the five projects shown in the homepage grid. */
 export const PROJECTS: Project[] = [
   {
     id: "wandermark",
@@ -68,10 +72,10 @@ export const PROJECTS: Project[] = [
     name: "Wandermark",
     category: "Travel & Tourism",
     filter: "travel",
+    featured: true,
     url: "https://e1q3g8174391-d.space-z.ai/",
     domain: "wandermark.travel",
-    description:
-      "A refined travel website designed around guided journeys, destination discovery, and memorable travel experiences across 60+ countries.",
+    description: "Explore the world through a thoughtful digital experience.",
     heroShot: "/projects/wandermark-hero.jpg",
     altShot: "/projects/wandermark-mid.jpg",
   },
@@ -81,10 +85,10 @@ export const PROJECTS: Project[] = [
     name: "Velmora Estates",
     category: "Luxury Real Estate",
     filter: "realestate",
+    featured: true,
     url: "https://c1t3f82gps61-d.space-z.ai/",
     domain: "velmoraestates.com",
-    description:
-      "A sophisticated real-estate experience designed to present premium properties through an elegant, editorial interface.",
+    description: "A refined digital presence for modern property.",
     heroShot: "/projects/velmora-hero.jpg",
     altShot: "/projects/velmora-mid.jpg",
   },
@@ -94,10 +98,10 @@ export const PROJECTS: Project[] = [
     name: "Marlowe & Hart",
     category: "Architecture & Interiors",
     filter: "creative",
+    featured: true,
     url: "https://q193a8gadev0-d.space-z.ai/",
     domain: "marlowehart.com",
-    description:
-      "A sophisticated studio website designed to present architecture, interiors, projects, and creative direction through an editorial visual experience.",
+    description: "Architecture and interiors, presented with editorial calm.",
     heroShot: "/projects/marlowe-hero.jpg",
     altShot: "/projects/marlowe-mid.jpg",
   },
@@ -107,10 +111,10 @@ export const PROJECTS: Project[] = [
     name: "Sizzle Stack",
     category: "Restaurant & Hospitality",
     filter: "hospitality",
+    featured: true,
     url: "https://p1d3y8hn52n0-d.space-z.ai/",
     domain: null,
-    description:
-      "A bold restaurant website designed around food presentation, menu discovery, promotions, and clear ordering actions.",
+    description: "A bold, appetising home for menus and orders.",
     heroShot: "/projects/sizzlestack-hero.jpg",
     altShot: "/projects/sizzlestack-mid.jpg",
   },
@@ -120,10 +124,10 @@ export const PROJECTS: Project[] = [
     name: "Vanta Motorgroup",
     category: "Luxury Automotive",
     filter: "business",
+    featured: true,
     url: "https://c1k3y83101a1-d.space-z.ai/",
     domain: null,
-    description:
-      "A premium automotive website designed to showcase luxury vehicles and create a polished digital experience for prospective customers.",
+    description: "A polished digital showroom for luxury vehicles.",
     heroShot: "/projects/vanta-hero.jpg",
     altShot: "/projects/vanta-mid.jpg",
   },
