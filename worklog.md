@@ -36,3 +36,22 @@ Work Log:
 Stage Summary:
 - The link the user requires is unchanged: https://emnexaif.space-z.ai/ — no domain change needed; it is the deployment target of this project.
 - Final rebuild code is committed and build-verified; the platform's FC redeploy picks it up from the committed state (user may need to press Publish/Deploy in workspace UI if propagation is delayed).
+
+---
+Task ID: 3
+Agent: Super Z (main agent)
+Task: Fix duplicate portfolio entries, add 4 missing client projects (Kova, Wrenfield, Ember Roast, Voyara), and point client-site "Designed By Emnex AI" credits to https://emnexaii.space-z.ai/#contact.
+
+Work Log:
+- Identified duplication source: CloserLook section re-displayed the first 3 projects already shown in SelectedWork.
+- Fetched the 4 new client sites; extracted titles/meta for categories: Kova Studio (Creative Digital Agency), Wrenfield House (Private Residences), Ember Roast Coffee (Roastery & Cafe), Voyara (Tour Operator & Travel).
+- Captured 12 real screenshots via agent-browser at 1440x900; selected best 8, converted to optimized JPEG (quality 84) matching existing asset specs.
+- data.ts: PROJECTS expanded to 9 (indices 01-09), FilterKey/FILTERS reduced to 6 (Nonprofit removed — no nonprofit projects, empty state gone).
+- work.tsx: removed CloserLook component; page.tsx composition updated (Hero → Problem → Solution → SelectedWork → Services → Process → About → Faq → FinalCta).
+- Verified: lint clean, build clean, 9 projects render exactly once, filters correct (Travel 2 / RealEstate 2 / Hospitality 2 / Creative 2 / Business 1), zero horizontal overflow on mobile.
+- Credit audit of all 9 client sites: 8 link emnexaif.space-z.ai, Velmora Estates has no credit. Client sites are separate workspaces — provided the user per-site paste-ready instructions to change credits to https://emnexaii.space-z.ai/#contact.
+- Committed all changes and triggered deployment via Complete.
+
+Stage Summary:
+- Portfolio is now a single unified editorial section with all 9 client websites, each appearing once, with real screenshots.
+- Client-site credit change (emnexaif → emnexaii/#contact) must be applied in each client workspace; instruction text delivered to user.
