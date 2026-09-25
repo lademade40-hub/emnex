@@ -36,8 +36,7 @@ export type FilterKey =
   | "realestate"
   | "hospitality"
   | "creative"
-  | "business"
-  | "nonprofit";
+  | "business";
 
 export const FILTERS: { key: FilterKey; label: string }[] = [
   { key: "all", label: "All" },
@@ -46,7 +45,6 @@ export const FILTERS: { key: FilterKey; label: string }[] = [
   { key: "hospitality", label: "Hospitality" },
   { key: "creative", label: "Creative" },
   { key: "business", label: "Business" },
-  { key: "nonprofit", label: "Nonprofit" },
 ];
 
 export interface Project {
@@ -62,7 +60,7 @@ export interface Project {
   altShot: string;
 }
 
-/* The five selected projects shown on the homepage. */
+/* The full portfolio — every website designed & built by EMNEX AI. */
 export const PROJECTS: Project[] = [
   {
     id: "wandermark",
@@ -128,6 +126,58 @@ export const PROJECTS: Project[] = [
       "A premium automotive website designed to showcase luxury vehicles and create a polished digital experience for prospective customers.",
     heroShot: "/projects/vanta-hero.jpg",
     altShot: "/projects/vanta-mid.jpg",
+  },
+  {
+    id: "kova",
+    index: "06",
+    name: "Kova Studio",
+    category: "Creative Digital Agency",
+    filter: "creative",
+    url: "https://f1b3181pads0-d.space-z.ai/",
+    domain: null,
+    description:
+      "A confident creative studio website designed to present branding, web design, ecommerce, and digital marketing services with clarity and personality.",
+    heroShot: "/projects/kova-hero.jpg",
+    altShot: "/projects/kova-mid.jpg",
+  },
+  {
+    id: "wrenfield",
+    index: "07",
+    name: "Wrenfield House",
+    category: "Private Residences",
+    filter: "realestate",
+    url: "https://q1n3b885bag0-d.space-z.ai/",
+    domain: null,
+    description:
+      "An elegant residences website designed to present thirty eight private homes, availability, and scheduled visits through a calm, considered interface.",
+    heroShot: "/projects/wrenfield-hero.jpg",
+    altShot: "/projects/wrenfield-mid.jpg",
+  },
+  {
+    id: "emberroast",
+    index: "08",
+    name: "Ember Roast Coffee",
+    category: "Roastery & Cafe",
+    filter: "hospitality",
+    url: "https://s1b3186k5w81-d.space-z.ai/",
+    domain: null,
+    description:
+      "A warm roastery and cafe website designed around menu discovery, signature beverages, customer favourites, and effortless table booking.",
+    heroShot: "/projects/emberroast-hero.jpg",
+    altShot: "/projects/emberroast-mid.jpg",
+  },
+  {
+    id: "voyara",
+    index: "09",
+    name: "Voyara",
+    category: "Tour Operator & Travel",
+    filter: "travel",
+    url: "https://w1f3j81whdn1-d.space-z.ai/",
+    domain: null,
+    description:
+      "A travel website designed around small-group tours and destinations, with clear itineraries, honest pricing, and simple trip planning actions.",
+    heroShot: "/projects/voyara-hero.jpg",
+    altShot: "/projects/voyara-mid.jpg",
   },
 ];
 

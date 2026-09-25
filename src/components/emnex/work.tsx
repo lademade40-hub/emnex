@@ -31,8 +31,7 @@ export function SelectedWork() {
           <Reveal delay={0.14}>
             <p className="mt-6 max-w-[620px] font-sans text-[16px] leading-relaxed text-clay">
               A selection of websites created by EMNEX AI for businesses across
-              travel, real estate, hospitality, creative services, nonprofits,
-              and more.
+              travel, real estate, hospitality, creative services, and more.
             </p>
           </Reveal>
         </div>
@@ -154,84 +153,6 @@ export function SelectedWork() {
             )}
           </motion.div>
         </AnimatePresence>
-      </div>
-    </section>
-  );
-}
-
-/* ---------------------------------------------------------------- */
-/* Behind the Work — three large real mockups, image-first           */
-/* ---------------------------------------------------------------- */
-
-export function CloserLook() {
-  const featured = PROJECTS.slice(0, 3);
-  return (
-    <section className="bg-ivory">
-      <div className="container-x py-24 md:py-32">
-        <div className="max-w-[760px]">
-          <Reveal>
-            <Kicker>Behind the Work</Kicker>
-          </Reveal>
-          <Reveal delay={0.08}>
-            <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
-              A closer look at three projects.
-            </h2>
-          </Reveal>
-          <Reveal delay={0.14}>
-            <p className="mt-6 max-w-[560px] font-sans text-[16px] leading-relaxed text-clay">
-              The same websites featured in the hero, with a little more
-              context.
-            </p>
-          </Reveal>
-        </div>
-
-        <div className="mt-8">
-          {featured.map((p, i) => {
-            const flip = i % 2 === 1;
-            return (
-              <Reveal key={p.id} y={24}>
-                <article className="grid items-center gap-8 border-t border-line py-14 lg:grid-cols-12 lg:gap-12 lg:py-16 first:border-t-0 [&:not(:first-child)]:border-t">
-                  {/* LARGE mockup — 65–75% of the visual attention */}
-                  <a
-                    href={p.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`View ${p.name} live website`}
-                    className={`group block lg:col-span-8 ${flip ? "lg:order-2" : ""}`}
-                  >
-                    <BrowserFrame
-                      src={p.altShot}
-                      alt={`${p.name} — inside pages of the live website`}
-                      domain={p.domain}
-                      sizes="(min-width: 1024px) 66vw, 100vw"
-                    />
-                  </a>
-
-                  {/* Secondary text column */}
-                  <div className={`lg:col-span-4 ${flip ? "lg:order-1" : ""}`}>
-                    <div className="flex items-baseline gap-4">
-                      <span className="font-serif text-[15px] italic text-ember">
-                        {p.index}
-                      </span>
-                      <span className="kicker text-clay">{p.category}</span>
-                    </div>
-                    <h3 className="mt-4 font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-normal uppercase leading-[1.05] tracking-[0.005em] text-ink">
-                      {p.name}
-                    </h3>
-                    <p className="mt-5 max-w-[400px] font-sans text-[15.5px] leading-relaxed text-clay">
-                      {p.description}
-                    </p>
-                    <div className="mt-8">
-                      <TextLink href={p.url} external>
-                        View Project
-                      </TextLink>
-                    </div>
-                  </div>
-                </article>
-              </Reveal>
-            );
-          })}
-        </div>
       </div>
     </section>
   );
