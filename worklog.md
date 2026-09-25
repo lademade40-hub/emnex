@@ -91,3 +91,21 @@ Stage Summary:
 - Page now reads as one continuous art-directed composition: uniform section system (normal 64/96px, dark editorial 80/112px padding), spec-compliant intra-section spacing, no forced viewport heights.
 - Hero imagery is decorative-only; portfolio cards and CloserLook rows remain the clickable project surfaces.
 - NOTE: the live domain had been serving a stale FC snapshot (user screenshots matched the Task-1 build); this deploy re-triggers publication of the current code.
+
+---
+Task ID: 6
+Agent: Super Z (main agent)
+Task: FINAL REFINEMENT pass — verify the 17-point spacing/image-behaviour spec end-to-end, harden hero static behaviour, and deploy the previously committed spacing work (4b46cff was never published).
+
+Work Log:
+- Full spec audit against current code: all 17 requirements already satisfied by Task 5 + existing grid (static hero, compact rhythm, 5-project 2-col grid, quiet filters, CloserLook visuals, founder items-center, no min-height/vh in emnex components, palette/typography untouched).
+- hero.tsx: passed interactive={false} to all three BrowserFrames so static behaviour is explicit rather than incidental (no group-hover transform possible even if markup changes later).
+- Verified via agent-browser DOM at 1440x900: hero images wrappedInLink=false for all 3, hero contains only #contact + #portfolio links, cursor=auto; section flow Hero→Problem→Way Forward→Selected Work→Services→How It Works→Behind the Work→About→FAQ→Final CTA with 0px inter-section gaps; portfolio grid 2 cols / row-gap 80px, rows Wandermark|Velmora, Marlowe|Sizzle, Vanta|editorial note, all 5 clickable with correct URLs, exactly 5 cards; CloserLook 3 rows with 757px-wide dominant mockups + View Project links.
+- Verified mobile 390x844: hero images not links, portfolio 1 col / 5 cards, zero horizontal overflow (marquee clipped by design), screenshots captured.
+- Images: 0 broken after scroll (earlier 9 were lazy-load placeholders). Console: no errors (only HMR dev logs).
+- bun run lint clean; bun run build compiled successfully (static prerender).
+- Note: Sizzle Stack / Vanta domain pills show "live preview" (intentional null fallback in data.ts; user did not flag it, left unchanged per no-extra-styling rule).
+
+Stage Summary:
+- Refinement pass confirmed spec-complete; no rebuild, no content or palette changes.
+- This deploy publishes both the Task-5 spacing system (commit 4b46cff) and the hero hardening — the live domain was still serving the pre-spacing snapshot.

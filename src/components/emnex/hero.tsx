@@ -106,6 +106,7 @@ export function Hero() {
                 alt={`${velmora.name} — live website preview`}
                 domain={velmora.domain}
                 sizes="30vw"
+                interactive={false}
                 className="shadow-[0_2px_6px_rgba(21,21,21,0.05),0_30px_60px_-30px_rgba(21,21,21,0.3)]"
               />
             </div>
@@ -117,6 +118,7 @@ export function Hero() {
                 alt={`${marlowe.name} — live website preview`}
                 domain={marlowe.domain}
                 sizes="30vw"
+                interactive={false}
                 className="shadow-[0_2px_6px_rgba(21,21,21,0.05),0_30px_60px_-30px_rgba(21,21,21,0.3)]"
               />
             </div>
@@ -129,6 +131,7 @@ export function Hero() {
                 domain={wandermark.domain}
                 priority
                 sizes="(min-width: 1024px) 54vw, 100vw"
+                interactive={false}
                 className="shadow-[0_4px_10px_rgba(21,21,21,0.07),0_70px_130px_-40px_rgba(21,21,21,0.45)]"
               />
             </div>
