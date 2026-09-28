@@ -124,3 +124,9 @@ Work Log:
 
 Stage Summary:
 - Hero now sits on a warm stone / champagne-paper surface (#E8E1D6); black editorial typography + restrained ember accent + black CTA relationship preserved; no gradients, textures, or new colors anywhere else on the page.
+
+Deployment note (post Task 7):
+- Code state verified locally (commit fb33f9d): hero stone #E8E1D6 live in .next build (chunk dd6ff2b0006cda50.css contains e8e1d6; built HTML hero = "relative overflow-hidden bg-stone-warm").
+- Live FC regression: https://emnexaif.space-z.ai/ began serving a DIFFERENT old snapshot (hero class "bg-wash ... pt-28 pb-20", CSS chunk 70ef51ebadef8f7e.css without any emnex palette token, title "…for Ambitious Businesses"). This snapshot was never in this workspace's git history — platform-side artifact.
+- Re-triggered Complete twice; polled ~5 min incl. cache-busting; FC consistently returns bg-wash and X-Fc-Error-Type: FCCommonError on some invocations. Platform deployment pipeline is stuck/erroring, not a code issue.
+- Action for user: press Publish/Deploy in the workspace UI (documented reliable fallback, cf. Tasks 2 & 5).
