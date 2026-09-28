@@ -130,3 +130,21 @@ Deployment note (post Task 7):
 - Live FC regression: https://emnexaif.space-z.ai/ began serving a DIFFERENT old snapshot (hero class "bg-wash ... pt-28 pb-20", CSS chunk 70ef51ebadef8f7e.css without any emnex palette token, title "…for Ambitious Businesses"). This snapshot was never in this workspace's git history — platform-side artifact.
 - Re-triggered Complete twice; polled ~5 min incl. cache-busting; FC consistently returns bg-wash and X-Fc-Error-Type: FCCommonError on some invocations. Platform deployment pipeline is stuck/erroring, not a code issue.
 - Action for user: press Publish/Deploy in the workspace UI (documented reliable fallback, cf. Tasks 2 & 5).
+
+---
+Task ID: 8
+Agent: Super Z (main agent)
+Task: Use the client's uploaded founder portrait (Cloudinary v1790602534/5848204809893253084.jpg, 1792x1792) as the EMNEX AI hero visual — right-side editorial composition. No other changes.
+
+Work Log:
+- The pasted file did not reach upload/; downloaded the EXACT portrait from the user's Cloudinary URL (435KB progressive JPEG, unmodified bytes) → public/founder-hero.jpg. About-section founder.jpg untouched.
+- hero.tsx intro restructured: grid lg:grid-cols-12 — text col-span-7 (eyebrow/headline/paragraph/CTAs, content + styles unchanged; left-aligned on lg, still centered on mobile) | portrait col-span-5 (~40% width, within the 35-45% spec), h-400/460/560, items-center.
+- Portrait purely visual: plain div + next/image, no <a>, pointer-events-none, select-none, draggable=false, cursor auto.
+- Blend treatment (all stone-warm #E8E1D6 so it melts into the existing hero surface): whisper veil bg-stone-warm/[0.07] over the whole photo; left fade (24% mobile / 42% lg) protecting the typography; right 14% + top 12 + bottom 16 feathering — no hard box, no border, no shadow, no card. Natural photo colors preserved (navy suit + burgundy tie quietly echo the palette).
+- Mockup showcase (STATIC PROJECT SHOWCASE), caption, ticker, all other sections untouched.
+- Verified via agent-browser: desktop 1440x900 — face right of headline, headline dominant, portraitInAnchor=false, pointerEvents=none, headline/portrait boxes do not overlap, transition into showcase clean; mobile 390x844 — stacks TEXT→CTA→PORTRAIT (headlineBottom 393 < portraitTop 789), face fully visible, zero horizontal overflow. Zero page errors.
+- bun run lint clean; build successful.
+
+Stage Summary:
+- Hero now reads: warm stone field, black editorial typography left, founder portrait emerging softly on the right — exactly the user's ASCII composition.
+- Asset: public/founder-hero.jpg (exact uploaded portrait, unmodified).
