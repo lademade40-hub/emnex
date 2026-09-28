@@ -109,3 +109,18 @@ Work Log:
 Stage Summary:
 - Refinement pass confirmed spec-complete; no rebuild, no content or palette changes.
 - This deploy publishes both the Task-5 spacing system (commit 4b46cff) and the hero hardening — the live domain was still serving the pre-spacing snapshot.
+
+---
+Task ID: 7
+Agent: Super Z (main agent)
+Task: HERO BACKGROUND UPDATE ONLY — replace hero ivory surface with warm architectural stone #E8E1D6. Nothing else changes.
+
+Work Log:
+- globals.css: added --color-stone-warm: #e8e1d6 to the brand palette block (semantic token, no Tailwind stone-scale collision).
+- hero.tsx: section#top bg-ivory → bg-stone-warm; ticker strip dropped its bg-ivory so it inherits the stone surface (border-y lines unchanged). No texture, no gradient — clean solid.
+- chrome.tsx: header UNSCROLLED state bg-ivory → bg-transparent only, so the stone hero reads as one seamless surface behind the wordmark/nav/CTA (all header elements, height, layout untouched); scrolled floating-bar state (bg-ivory/95 + border + blur) unchanged.
+- Verified via agent-browser: computed hero bg rgb(232,225,214) = #E8E1D6 exact; all 9 other sections still ivory/ink, footer ink — change fully scoped; header transparent at top / ivory bar when scrolled; desktop 1440x900 + mobile 390x844 screenshots; contrast on stone: headline ink 14.1:1, ember italic ~4.0:1 (large display, strongest accent), paragraph clay ~4.06:1 (was 4.6:1 on ivory — still muted-by-design and readable); zero page errors.
+- bun run lint clean; bun run build successful.
+
+Stage Summary:
+- Hero now sits on a warm stone / champagne-paper surface (#E8E1D6); black editorial typography + restrained ember accent + black CTA relationship preserved; no gradients, textures, or new colors anywhere else on the page.

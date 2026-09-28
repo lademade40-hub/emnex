@@ -43,7 +43,7 @@ export function Hero() {
         };
 
   return (
-    <section id="top" className="relative overflow-hidden bg-ivory">
+    <section id="top" className="relative overflow-hidden bg-stone-warm">
       {/* ------------------------------------------------ intro */}
       <div className="container-x pb-14 pt-[120px] text-center md:pb-16 md:pt-[150px]">
         <motion.p
@@ -145,7 +145,7 @@ export function Hero() {
       </div>
 
       {/* ------------------------------------------------- ticker */}
-      <div className="marquee border-y border-line bg-ivory py-[18px]">
+      <div className="marquee border-y border-line py-[18px]">
         <div className="marquee-track">
           <TickerRow />
           <TickerRow />

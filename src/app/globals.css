@@ -23,6 +23,7 @@
   --color-ember: #b84a32;
   --color-paper: #ffffff;
   --color-ivory-deep: #eae4d8;
+  --color-stone-warm: #e8e1d6;
 
   /* shadcn token bridge (kept for component compatibility) */
   --color-background: var(--background);

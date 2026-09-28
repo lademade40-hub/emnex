@@ -64,7 +64,7 @@ export function Header() {
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
           scrolled || open
             ? "border-line bg-ivory/95 backdrop-blur-md"
-            : "border-transparent bg-ivory"
+            : "border-transparent bg-transparent"
         }`}
       >
         <div className="container-x flex h-[72px] items-center justify-between">
