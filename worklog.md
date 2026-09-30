@@ -148,3 +148,22 @@ Work Log:
 Stage Summary:
 - Hero now reads: warm stone field, black editorial typography left, founder portrait emerging softly on the right — exactly the user's ASCII composition.
 - Asset: public/founder-hero.jpg (exact uploaded portrait, unmodified).
+
+---
+Task ID: 9
+Agent: Super Z (main agent)
+Task: CRITICAL CORRECTION — hero must be a FULL-BLEED photographic background (portrait covers the ENTIRE hero, text layered directly on top). Remove Task 8's two-column [text | portrait] layout. No other sections change.
+
+Work Log:
+- hero.tsx fully rewritten as ONE background layer + ONE content layer: (1) absolute inset-0 next/image of the exact uploaded portrait (public/founder-hero.jpg, unmodified) with object-cover object-[50%_6%] — full-bleed edge-to-edge, headroom above the hair preserved, no distortion; (2) uniform readability overlay bg-black/[0.5] mobile / [0.42] desktop (rgba(0,0,0,0.42) per spec) + very subtle center radial deepening behind the type block only; (3) existing hero copy centered over the photo — same eyebrow, same headline with ember #B84A32 italic "monthly hosting fees?", same paragraph, same two CTAs (black primary w/ white text via ButtonPrimary; transparent secondary w/ light border + light text via ButtonSecondary tone=dark). No text box, no panel, no card.
+- REMOVED from hero: the two-column grid, the right-side portrait column, the entire three-mockup showcase (Velmora/Marlowe/Wandermark BrowserFrames) and its caption — hero now contains zero image cards.
+- Ticker kept as hero content: light strip over the photo bottom (border-ivory/20, text ivory/70, ember dots).
+- chrome.tsx: header UNSCROLLED state transparent -> bg-ivory (its existing light background) so the fixed nav never sits on the photograph; scrolled/open state (bg-ivory/95 blur) unchanged; structure/links untouched.
+- next.config.ts: images.qualities [75, 85] (Next 16 required config for quality=85 hero image; clears console warning).
+- min-h-[90vh] content band (user spec 85-90vh, cinematic; content-determined beyond that).
+- Verified via agent-browser 1440x900 + 390x844: portrait covers entire hero edge-to-edge (no ivory/cream beside it, no visible boundary); DOM — hero has exactly 2 links (#contact, #portfolio), portrait img pointer-events=none (purely visual, never clickable), 1 image in hero; desktop crop shows full head with headroom (top of head NOT cut), face fully recognizable behind 0.42 overlay; mobile keeps FULL photographic background (not stacked), face complete, zero horizontal overflow; section heights of all 10 following sections identical to pre-change (hero-only modification); ember italic clearly visible over darkened photo; no page errors.
+- bun run lint clean; bun run build successful (static prerender).
+
+Stage Summary:
+- Hero now reads as ONE LARGE CINEMATIC PHOTOGRAPH with the text layered over it — no split-screen, no columns, no image card. Nav keeps its ivory bar above the full-bleed photo.
+- All other sections, spacing, colors, and content untouched from Task 6/7 state.
