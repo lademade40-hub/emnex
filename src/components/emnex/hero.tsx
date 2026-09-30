@@ -49,6 +49,9 @@ export function Hero() {
           edge to edge, top to bottom. Purely visual: never a link,
           never a card, no visible boundary. */}
       <div className="pointer-events-none absolute inset-0 select-none">
+        {/* ambient extension — the portrait's own studio backdrop, softly
+            blurred, fills the wide banner so the full square portrait
+            needs no aggressive crop and no empty frame shows */}
         <Image
           src="/founder-hero.jpg"
           alt=""
@@ -56,10 +59,24 @@ export function Hero() {
           priority
           quality={85}
           sizes="100vw"
-          className="object-cover object-[50%_6%]"
+          className="scale-[1.14] object-cover blur-[64px]"
           draggable={false}
         />
-        {/* readability overlay — uniform darkening, face stays recognizable */}
+        {/* the FULL portrait — complete original framing, head to suit,
+            undistorted, centered; side edges feather into the wash */}
+        <div className="absolute inset-y-0 left-1/2 aspect-square -translate-x-1/2 [mask-image:linear-gradient(to_right,transparent,black_7%,black_93%,transparent)]">
+          <Image
+            src="/founder-hero.jpg"
+            alt=""
+            fill
+            priority
+            quality={85}
+            sizes="100vh"
+            className="object-cover"
+            draggable={false}
+          />
+        </div>
+        {/* readability overlay — uniform darkening, portrait stays clearly visible */}
         <div className="absolute inset-0 bg-black/[0.5] md:bg-black/[0.42]" />
         {/* very subtle deepening around the centered type block only */}
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(0,0,0,0.16)_0%,rgba(0,0,0,0)_70%)]" />

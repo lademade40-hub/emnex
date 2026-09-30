@@ -167,3 +167,20 @@ Work Log:
 Stage Summary:
 - Hero now reads as ONE LARGE CINEMATIC PHOTOGRAPH with the text layered over it — no split-screen, no columns, no image card. Nav keeps its ivory bar above the full-bleed photo.
 - All other sections, spacing, colors, and content untouched from Task 6/7 state.
+
+---
+Task ID: 10
+Agent: Super Z (main agent)
+Task: HERO IMAGE CORRECTION #2 — show the ENTIRE uploaded portrait (full head, face, neck, shirt, tie, shoulders, suit) in the full-bleed hero. Kill the zoomed cover crop; keep the full-bleed background concept, text on top, no two-column, no image card. No other sections change.
+
+Work Log:
+- hero.tsx background layer reworked (concept unchanged: one background layer + overlay + centered content):
+  (1) ambient extension: same portrait, object-cover, scale-[1.14] + blur-[64px] — the portrait's own grey studio backdrop fills the wide banner edge-to-edge so there is NO empty white/cream frame;
+  (2) the FULL portrait: centered square box (inset-y-0, aspect-square, left-1/2 -translate-x-1/2) with object-cover of the square source = complete original framing, undistorted, no zoom; wrapper carries [mask-image:linear-gradient] feathering its left/right ~7% edges into the blurred wash — no visible image boundary, no card;
+  (3) overlay stack unchanged (bg-black/[0.5] mobile / [0.42] desktop + subtle center radial) — portrait stays clearly visible, text readable.
+- Mobile behavior: square box = hero height > viewport width, so the person renders full-height (head to tie, sides naturally cropped by overflow-hidden) — same complete-person result, undistorted.
+- Verified via agent-browser 1440x900 + 390x844 against the ORIGINAL uploaded portrait: full head (with headroom above hair), full face, neck, white shirt, burgundy tie, shoulders, navy suit all visible; face proportionate to the original framing (no longer filling the hero); no cream/empty rectangle; seamless edge transition. DOM: 2 imgs (both pointer-events none, loaded), hero links still exactly #contact + #portfolio, zero horizontal overflow, zero page errors.
+- bun run lint clean; bun run build successful.
+
+Stage Summary:
+- Hero = full-width cinematic photographic banner showing the COMPLETE uploaded portrait over its own blurred backdrop extension; text layered on top; all other sections untouched.
