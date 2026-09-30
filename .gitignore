@@ -52,3 +52,15 @@ prompt
 server.log
 # Skills directory
 /skills/
+# --- sandbox-only (not needed on GitHub / Vercel) ---
+/.zscripts
+/Caddyfile
+/db
+/download
+/examples
+/mini-services
+/scripts
+/tests
+/tool-results
+/upload
+/worklog.md
