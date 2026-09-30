@@ -1,0 +1,15 @@
+# Netlify deployment configuration for EMNEX AI (Next.js 16)
+# Docs: https://docs.netlify.com/frameworks/next-js/overview/
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  # Next.js 16 requires Node 20.9+; pin 22 for stability
+  NODE_VERSION = "22"
+
+# Netlify's official Next.js runtime (OpenNext-based) —
+# handles SSR, static pages, routing, and the /api route
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
