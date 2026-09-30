@@ -1,0 +1,13 @@
+// Cloudflare Workers configuration for EMNEX AI (Next.js via OpenNext)
+// NOTE: "name" MUST match the Cloudflare Workers project name ("emnex").
+// A mismatch causes deploy error 10143 (WORKER_SELF_REFERENCE not found).
+{
+  "name": "emnex",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  }
+}
