@@ -5,7 +5,7 @@
 
 /* ============================================================
    EMNEX AI — Editorial Design System
-   Soft sage green + espresso ink, with a burnt-red accent.
+   Dusty powder blue + espresso ink, with a burnt-red accent.
    ============================================================ */
 
 @theme inline {
@@ -14,16 +14,16 @@
     "Segoe UI", sans-serif;
   --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
 
-  /* Brand palette — sage green light theme */
-  --color-ivory: #e8ecdb;
+  /* Brand palette — dusty powder blue light theme */
+  --color-ivory: #dce5ee;
   --color-ink: #171310;
-  --color-charcoal: #30342a;
-  --color-clay: #6a7060;
-  --color-line: #d2d8be;
+  --color-charcoal: #2b3238;
+  --color-clay: #5f6b76;
+  --color-line: #c4d1de;
   --color-ember: #a63d28;
-  --color-paper: #f6f8ef;
-  --color-ivory-deep: #dde3cb;
-  --color-stone-warm: #dde3cb;
+  --color-paper: #f2f6fa;
+  --color-ivory-deep: #cbd8e4;
+  --color-stone-warm: #cbd8e4;
 
   /* shadcn token bridge (kept for component compatibility) */
   --color-background: var(--background);
@@ -60,31 +60,31 @@
 
 :root {
   --radius: 0.25rem;
-  --background: #e8ecdb;
+  --background: #dce5ee;
   --foreground: #171310;
-  --card: #f6f8ef;
+  --card: #f2f6fa;
   --card-foreground: #171310;
-  --popover: #f6f8ef;
+  --popover: #f2f6fa;
   --popover-foreground: #171310;
   --primary: #171310;
-  --primary-foreground: #f6f8ef;
-  --secondary: #dde3cb;
+  --primary-foreground: #f2f6fa;
+  --secondary: #cbd8e4;
   --secondary-foreground: #171310;
-  --muted: #dde3cb;
-  --muted-foreground: #6a7060;
+  --muted: #cbd8e4;
+  --muted-foreground: #5f6b76;
   --accent: #a63d28;
-  --accent-foreground: #f6f8ef;
+  --accent-foreground: #f2f6fa;
   --destructive: #a63d28;
-  --border: #d2d8be;
-  --input: #d2d8be;
+  --border: #c4d1de;
+  --input: #c4d1de;
   --ring: #a63d28;
-  --sidebar: #f6f8ef;
+  --sidebar: #f2f6fa;
   --sidebar-foreground: #171310;
   --sidebar-primary: #171310;
-  --sidebar-primary-foreground: #f6f8ef;
-  --sidebar-accent: #dde3cb;
+  --sidebar-primary-foreground: #f2f6fa;
+  --sidebar-accent: #cbd8e4;
   --sidebar-accent-foreground: #171310;
-  --sidebar-border: #d2d8be;
+  --sidebar-border: #c4d1de;
   --sidebar-ring: #a63d28;
 }
 
@@ -135,7 +135,7 @@
 
   ::selection {
     background: #a63d28;
-    color: #f6f8ef;
+    color: #f2f6fa;
   }
 
   @media (prefers-reduced-motion: reduce) {
