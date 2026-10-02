@@ -23,9 +23,9 @@ import { BrowserFrame, Kicker, Reveal, TextLink } from "./ui";
 /* ---------------------------------------------------------------- */
 
 const ACCENTS = [
-  { num: "text-ember/90", line: "bg-ember" },
-  { num: "text-teal", line: "bg-teal" },
-  { num: "text-gold", line: "bg-gold" },
+  { num: "text-ember/90", line: "bg-ember", chip: "bg-ember/10 text-ember" },
+  { num: "text-teal", line: "bg-teal", chip: "bg-teal/10 text-teal" },
+  { num: "text-gold", line: "bg-gold", chip: "bg-gold/10 text-gold" },
 ];
 
 export function SelectedWork() {
@@ -143,7 +143,7 @@ function ProjectCard({
   accent,
 }: {
   p: Project;
-  accent: { num: string; line: string };
+  accent: { num: string; line: string; chip: string };
 }) {
   return (
     <article className="group h-full">
@@ -163,10 +163,10 @@ function ProjectCard({
           sizes="(min-width: 1024px) 31vw, (min-width: 768px) 46vw, 100vw"
         />
         <div className="flex flex-1 flex-col p-6 md:p-7">
-          <div className="flex items-baseline justify-between gap-4">
+          <div className="flex items-center justify-between gap-4">
             <span className="kicker text-clay">{p.category}</span>
             <span
-              className={`font-serif text-[14px] italic leading-none ${accent.num}`}
+              className={`inline-flex items-center rounded-full px-3 py-1 font-serif text-[13px] italic leading-none ${accent.chip}`}
             >
               {p.index}
             </span>
@@ -197,9 +197,13 @@ function ProjectCard({
 function EditorialNote() {
   return (
     <Reveal delay={0.2} y={20} className="h-full md:col-span-1 lg:col-span-3">
-      <div className="flex h-full flex-col justify-center gap-7 rounded-[5px] border border-line bg-paper px-7 py-9 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-10 lg:py-10">
+      <div className="flex h-full flex-col justify-center gap-7 rounded-[5px] border border-line bg-gradient-to-r from-blush via-paper to-sea px-7 py-9 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-10 lg:py-10">
         <div className="max-w-[640px]">
-          <span aria-hidden="true" className="block h-px w-14 bg-ember" />
+          <span aria-hidden="true" className="flex gap-1.5">
+            <span className="h-1.5 w-9 rounded-full bg-ember" />
+            <span className="h-1.5 w-9 rounded-full bg-teal" />
+            <span className="h-1.5 w-9 rounded-full bg-gold" />
+          </span>
           <p className="mt-5 font-serif text-[clamp(1.4rem,2vw,1.75rem)] font-normal leading-[1.28] text-charcoal">
             Every website on this page was designed, built and launched by
             EMNEX AI — yours could be the next one here.
@@ -221,13 +225,14 @@ function EditorialNote() {
 
 export function CloserLook() {
   const featured = PROJECTS.slice(0, 3);
+  const closerAccents = ["text-ember", "text-teal", "text-gold"];
 
   return (
-    <section className="bg-ivory">
+    <section className="bg-blush">
       <div className="container-x py-16 md:py-24">
         <div className="max-w-[760px]">
           <Reveal>
-            <Kicker>Behind the Work</Kicker>
+            <Kicker className="dot-gold">Behind the Work</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
@@ -266,7 +271,9 @@ export function CloserLook() {
                   {/* Secondary text column */}
                   <div className={`lg:col-span-4 ${flip ? "lg:order-1" : ""}`}>
                     <div className="flex items-baseline gap-4">
-                      <span className="font-serif text-[15px] italic text-ember">
+                      <span
+                        className={`font-serif text-[15px] italic ${closerAccents[i % 3]}`}
+                      >
                         {p.index}
                       </span>
                       <span className="kicker text-clay">{p.category}</span>

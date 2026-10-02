@@ -5,8 +5,10 @@ import { PROCESS_STEPS, PROBLEMS, SERVICES, SOLUTIONS } from "./data";
 import { ButtonPrimary, Kicker, Reveal } from "./ui";
 
 /* ---------------------------------------------------------------- */
-/* Problem — Deep Ink editorial rows                                 */
+/* Problem — Deep Ink editorial rows, rotating soft accents           */
 /* ---------------------------------------------------------------- */
+
+const darkAccents = ["text-ember", "text-teal-soft", "text-gold-soft"];
 
 export function Problem() {
   return (
@@ -42,7 +44,9 @@ export function Problem() {
                   i === PROBLEMS.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span className="font-serif text-[15px] italic text-ember">
+                <span
+                  className={`font-serif text-[15px] italic ${darkAccents[i % 3]}`}
+                >
                   {p.index}
                 </span>
                 <h3 className="font-serif text-[22px] font-normal leading-snug text-ivory md:text-[26px]">
@@ -61,16 +65,18 @@ export function Problem() {
 }
 
 /* ---------------------------------------------------------------- */
-/* Solution — Warm Ivory editorial rows                              */
+/* Solution — Soft Sage editorial rows, rotating accents              */
 /* ---------------------------------------------------------------- */
+
+const lightAccents = ["text-ember", "text-teal", "text-gold"];
 
 export function Solution() {
   return (
-    <section className="bg-ivory">
+    <section className="bg-sage">
       <div className="container-x py-16 md:py-24">
         <div className="max-w-[780px]">
           <Reveal>
-            <Kicker>The Way Forward</Kicker>
+            <Kicker className="dot-teal">The Way Forward</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
@@ -98,7 +104,9 @@ export function Solution() {
                   i === SOLUTIONS.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span className="font-serif text-[15px] italic text-ember">
+                <span
+                  className={`font-serif text-[15px] italic ${lightAccents[i % 3]}`}
+                >
                   {s.index}
                 </span>
                 <h3 className="font-serif text-[22px] font-normal leading-snug text-ink md:text-[26px]">
@@ -122,7 +130,7 @@ export function Solution() {
 
 export function Services() {
   return (
-    <section id="services" className="bg-ivory">
+    <section id="services" className="bg-sea">
       <div className="container-x py-16 md:py-24">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-[640px]">
@@ -218,12 +226,20 @@ export function Process() {
         </div>
 
         <div className="mt-12 grid gap-x-10 gap-y-12 md:mt-16 md:grid-cols-2 lg:grid-cols-4">
-          {PROCESS_STEPS.map((step, i) => (
+          {PROCESS_STEPS.map((step, i) => {
+            const stepAccent = [
+              "border-ember/60 text-ember",
+              "border-teal-soft/70 text-teal-soft",
+              "border-gold-soft/70 text-gold-soft",
+              "border-ivory/40 text-ivory",
+            ][i % 4];
+            const [barColor, dotColor] = stepAccent.split(" ");
+            return (
             <Reveal key={step.index} delay={0.07 * i} y={18}>
-              <div className="border-t border-ivory/[0.16] pt-7">
-                <span className="font-serif text-[40px] font-light leading-none text-ivory/90">
+              <div className={`border-t-2 ${barColor} pt-7`}>
+                <span className={`font-serif text-[40px] font-light leading-none text-ivory/90`}>
                   {step.index}
-                  <span className="text-ember">.</span>
+                  <span className={dotColor}>.</span>
                 </span>
                 <h3 className="mt-5 font-serif text-[21px] font-normal leading-snug">
                   {step.title}
@@ -233,7 +249,8 @@ export function Process() {
                 </p>
               </div>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
         <Reveal delay={0.1}>

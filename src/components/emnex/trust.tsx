@@ -12,7 +12,7 @@ import { ButtonPrimary, Kicker, Reveal, TextLink } from "./ui";
 
 export function About() {
   return (
-    <section id="about" className="bg-ivory">
+    <section id="about" className="bg-butter">
       <div className="container-x py-16 md:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Founder photograph — editorial treatment, not a card */}
@@ -34,7 +34,7 @@ export function About() {
                 </div>
               </div>
               <figcaption className="mt-5 flex items-center gap-3 font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-clay/80">
-                <span className="h-[6px] w-[6px] rounded-full bg-ember/80" />
+                <span className="h-[6px] w-[6px] rounded-full bg-teal/80" />
                 The founder behind EMNEX AI
               </figcaption>
             </figure>
@@ -43,7 +43,7 @@ export function About() {
           {/* Text */}
           <div className="lg:col-span-6">
             <Reveal>
-              <Kicker>About the Founder</Kicker>
+              <Kicker className="dot-teal">About the Founder</Kicker>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-6 font-serif text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink">

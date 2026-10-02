@@ -5,8 +5,9 @@
 
 /* ============================================================
    EMNEX AI — Editorial Design System
-   Warm sandstone gallery + espresso ink. Rotating accents
-   (ember red / ocean teal / bronze gold) echo the portfolio.
+   Multi-colour gallery: warm sandstone base + per-section tints
+   (sage / seafoam / blush / butter) drawn from the portfolio's own
+   palette, with rotating ember/teal/gold accents throughout.
    ============================================================ */
 
 @theme inline {
@@ -27,6 +28,16 @@
   --color-paper: #fbf7ee;
   --color-ivory-deep: #e8dbc0;
   --color-stone-warm: #e8dbc0;
+
+  /* Section tints — soft colour journey, one per light band */
+  --color-sage: #e7edda;
+  --color-sea: #dde9e1;
+  --color-blush: #f4e1d4;
+  --color-butter: #f5e8cb;
+
+  /* Light accent variants — for rotating colour on espresso sections */
+  --color-teal-soft: #93c4bc;
+  --color-gold-soft: #ddb76b;
 
   /* shadcn token bridge (kept for component compatibility) */
   --color-background: var(--background);
