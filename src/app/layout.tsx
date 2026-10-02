@@ -51,6 +51,11 @@ export const metadata: Metadata = {
   icons: {
     icon: "/logo.svg",
   },
+  // Google Search Console ownership verification
+  verification: {
+    google: "O9KHI-82vXxUnqemKFvbT2Ft40hynrotETKeTIqmsoQ",
+  },
+  metadataBase: new URL("https://emnex-3zko.vercel.app"),
   openGraph: {
     title: "EMNEX AI — AI-Powered Website Design",
     description:
