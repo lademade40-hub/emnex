@@ -127,7 +127,7 @@ export function Services() {
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-[640px]">
             <Reveal>
-              <Kicker>Services</Kicker>
+              <Kicker className="dot-teal">Services</Kicker>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
@@ -145,7 +145,9 @@ export function Services() {
         </div>
 
         <div className="mt-12 md:mt-14">
-          {SERVICES.map((s, i) => (
+          {SERVICES.map((s, i) => {
+            const serviceAccents = ["text-ember", "text-teal", "text-gold"];
+            return (
             <Reveal key={s.index} delay={0.04 * i} y={14}>
               <a
                 href="#contact"
@@ -154,7 +156,9 @@ export function Services() {
                   i === SERVICES.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span className="font-serif text-[14px] italic text-ember">
+                <span
+                  className={`font-serif text-[14px] italic ${serviceAccents[i % 3]}`}
+                >
                   {s.index}
                 </span>
                 <h3 className="font-serif text-[21px] font-normal leading-snug text-ink transition-colors duration-300 group-hover:text-ember md:text-[25px]">
@@ -169,7 +173,8 @@ export function Services() {
                 />
               </a>
             </Reveal>
-          ))}
+            );
+          })}
         </div>
 
         <Reveal delay={0.1}>

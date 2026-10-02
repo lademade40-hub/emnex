@@ -5,7 +5,8 @@
 
 /* ============================================================
    EMNEX AI — Editorial Design System
-   Dusty powder blue + espresso ink, with a burnt-red accent.
+   Warm sandstone gallery + espresso ink. Rotating accents
+   (ember red / ocean teal / bronze gold) echo the portfolio.
    ============================================================ */
 
 @theme inline {
@@ -14,16 +15,18 @@
     "Segoe UI", sans-serif;
   --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
 
-  /* Brand palette — dusty powder blue light theme */
-  --color-ivory: #dce5ee;
+  /* Brand palette — warm sandstone gallery theme */
+  --color-ivory: #f2e8d5;
   --color-ink: #171310;
-  --color-charcoal: #2b3238;
-  --color-clay: #5f6b76;
-  --color-line: #c4d1de;
+  --color-charcoal: #3a332a;
+  --color-clay: #7a6a57;
+  --color-line: #ddd0b4;
   --color-ember: #a63d28;
-  --color-paper: #f2f6fa;
-  --color-ivory-deep: #cbd8e4;
-  --color-stone-warm: #cbd8e4;
+  --color-teal: #23655f;
+  --color-gold: #9c6d2c;
+  --color-paper: #fbf7ee;
+  --color-ivory-deep: #e8dbc0;
+  --color-stone-warm: #e8dbc0;
 
   /* shadcn token bridge (kept for component compatibility) */
   --color-background: var(--background);
@@ -60,31 +63,31 @@
 
 :root {
   --radius: 0.25rem;
-  --background: #dce5ee;
+  --background: #f2e8d5;
   --foreground: #171310;
-  --card: #f2f6fa;
+  --card: #fbf7ee;
   --card-foreground: #171310;
-  --popover: #f2f6fa;
+  --popover: #fbf7ee;
   --popover-foreground: #171310;
   --primary: #171310;
-  --primary-foreground: #f2f6fa;
-  --secondary: #cbd8e4;
+  --primary-foreground: #fbf7ee;
+  --secondary: #e8dbc0;
   --secondary-foreground: #171310;
-  --muted: #cbd8e4;
-  --muted-foreground: #5f6b76;
+  --muted: #e8dbc0;
+  --muted-foreground: #7a6a57;
   --accent: #a63d28;
-  --accent-foreground: #f2f6fa;
+  --accent-foreground: #fbf7ee;
   --destructive: #a63d28;
-  --border: #c4d1de;
-  --input: #c4d1de;
+  --border: #ddd0b4;
+  --input: #ddd0b4;
   --ring: #a63d28;
-  --sidebar: #f2f6fa;
+  --sidebar: #fbf7ee;
   --sidebar-foreground: #171310;
   --sidebar-primary: #171310;
-  --sidebar-primary-foreground: #f2f6fa;
-  --sidebar-accent: #cbd8e4;
+  --sidebar-primary-foreground: #fbf7ee;
+  --sidebar-accent: #e8dbc0;
   --sidebar-accent-foreground: #171310;
-  --sidebar-border: #c4d1de;
+  --sidebar-border: #ddd0b4;
   --sidebar-ring: #a63d28;
 }
 
@@ -135,7 +138,7 @@
 
   ::selection {
     background: #a63d28;
-    color: #f2f6fa;
+    color: #fbf7ee;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -163,17 +166,25 @@
     @apply font-sans text-[11px] font-medium uppercase tracking-[0.22em];
   }
 
-  /* Thin rule under section kickers */
+  /* Thin rule under section kickers — accent color via --dot */
   .rule-dot::before {
     content: "";
     display: inline-block;
     width: 7px;
     height: 7px;
     border-radius: 9999px;
-    background: #a63d28;
+    background: var(--dot, #a63d28);
     margin-right: 12px;
     vertical-align: middle;
     transform: translateY(-1px);
+  }
+
+  /* Accent variants for the kicker dot */
+  .dot-teal {
+    --dot: #23655f;
+  }
+  .dot-gold {
+    --dot: #9c6d2c;
   }
 
   /* Editorial link with animated arrow */

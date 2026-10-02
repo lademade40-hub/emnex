@@ -91,7 +91,7 @@ export function Faq() {
           {/* Heading column */}
           <div className="lg:col-span-5">
             <Reveal>
-              <Kicker>FAQ</Kicker>
+              <Kicker className="dot-gold">FAQ</Kicker>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-6 font-serif text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink">

@@ -17,6 +17,17 @@ import { BrowserFrame, Kicker, Reveal, TextLink } from "./ui";
 /* Uniform grid: 3x3 on desktop, 2-col on tablet, stack on mobile.    */
 /* ---------------------------------------------------------------- */
 
+/* ---------------------------------------------------------------- */
+/* Rotating accent trio — echoes the portfolio's own palette:         */
+/* ember red, ocean teal (Wandermark/Voyara), bronze gold (Velmora).  */
+/* ---------------------------------------------------------------- */
+
+const ACCENTS = [
+  { num: "text-ember/90", line: "bg-ember" },
+  { num: "text-teal", line: "bg-teal" },
+  { num: "text-gold", line: "bg-gold" },
+];
+
 export function SelectedWork() {
   const [filter, setFilter] = useState<FilterKey>("all");
   const visible = PROJECTS.filter(
@@ -101,7 +112,7 @@ export function SelectedWork() {
               <div className="grid grid-cols-1 gap-x-8 gap-y-12 pt-12 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3 lg:gap-x-10">
                 {visible.map((p, i) => (
                   <Reveal key={p.id} delay={Math.min(i, 5) * 0.07} y={20} className="h-full">
-                    <ProjectCard p={p} />
+                    <ProjectCard p={p} accent={ACCENTS[i % 3]} />
                   </Reveal>
                 ))}
                 {filter === "all" && <EditorialNote />}
@@ -122,12 +133,18 @@ const cardPanel =
   "flex h-full flex-col overflow-hidden rounded-[5px] border border-line bg-paper transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-28px_rgba(23,19,16,0.35)]";
 
 const cardTopLine =
-  "block h-[3px] w-full origin-left scale-x-0 bg-ember transition-transform duration-500 ease-out group-hover:scale-x-100";
+  "block h-[3px] w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100";
 
 const cardVisit =
   "mt-auto inline-flex items-center gap-1.5 pt-6 font-sans text-[12px] font-semibold uppercase tracking-[0.16em] text-ember";
 
-function ProjectCard({ p }: { p: Project }) {
+function ProjectCard({
+  p,
+  accent,
+}: {
+  p: Project;
+  accent: { num: string; line: string };
+}) {
   return (
     <article className="group h-full">
       <a
@@ -137,7 +154,7 @@ function ProjectCard({ p }: { p: Project }) {
         aria-label={`Visit the ${p.name} live website`}
         className={cardPanel}
       >
-        <span aria-hidden="true" className={cardTopLine} />
+        <span aria-hidden="true" className={`${cardTopLine} ${accent.line}`} />
         <BrowserFrame
           flat
           src={p.heroShot}
@@ -148,7 +165,9 @@ function ProjectCard({ p }: { p: Project }) {
         <div className="flex flex-1 flex-col p-6 md:p-7">
           <div className="flex items-baseline justify-between gap-4">
             <span className="kicker text-clay">{p.category}</span>
-            <span className="font-serif text-[14px] italic leading-none text-ember/90">
+            <span
+              className={`font-serif text-[14px] italic leading-none ${accent.num}`}
+            >
               {p.index}
             </span>
           </div>

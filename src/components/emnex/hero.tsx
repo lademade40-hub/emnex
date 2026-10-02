@@ -12,12 +12,15 @@ const TICKER_ITEMS = [
 ];
 
 function TickerRow() {
+  const tickerDots = ["bg-ember/80", "bg-teal/80", "bg-gold/80"];
   return (
     <div className="flex shrink-0 items-center" aria-hidden="true">
       {TICKER_ITEMS.map((item, i) => (
         <span key={i} className="flex items-center">
           <span className="flex items-center gap-2.5 px-7">
-            <span className="h-[6px] w-[6px] rounded-full bg-ember/80" />
+            <span
+              className={`h-[6px] w-[6px] rounded-full ${tickerDots[i % 3]}`}
+            />
             <span className="whitespace-nowrap font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-ivory/70">
               {item}
             </span>
