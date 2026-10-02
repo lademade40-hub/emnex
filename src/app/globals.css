@@ -5,7 +5,7 @@
 
 /* ============================================================
    EMNEX AI — Editorial Design System
-   Ivory + Ink, with a restrained burnt-red accent.
+   Pure white + ink, with a restrained burnt-red accent.
    ============================================================ */
 
 @theme inline {
@@ -15,15 +15,15 @@
   --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
 
   /* Brand palette */
-  --color-ivory: #f3efe7;
+  --color-ivory: #ffffff;
   --color-ink: #171310;
   --color-charcoal: #34312d;
-  --color-clay: #716b63;
-  --color-line: #d8d1c6;
+  --color-clay: #6e6c67;
+  --color-line: #e6e5e1;
   --color-ember: #a63d28;
   --color-paper: #ffffff;
-  --color-ivory-deep: #eae4d8;
-  --color-stone-warm: #e8e1d6;
+  --color-ivory-deep: #f4f4f2;
+  --color-stone-warm: #f4f4f2;
 
   /* shadcn token bridge (kept for component compatibility) */
   --color-background: var(--background);
@@ -60,60 +60,60 @@
 
 :root {
   --radius: 0.25rem;
-  --background: #f3efe7;
+  --background: #ffffff;
   --foreground: #171310;
   --card: #ffffff;
   --card-foreground: #171310;
   --popover: #ffffff;
   --popover-foreground: #171310;
   --primary: #171310;
-  --primary-foreground: #f3efe7;
-  --secondary: #eae4d8;
+  --primary-foreground: #ffffff;
+  --secondary: #f4f4f2;
   --secondary-foreground: #171310;
-  --muted: #eae4d8;
-  --muted-foreground: #716b63;
+  --muted: #f4f4f2;
+  --muted-foreground: #6e6c67;
   --accent: #a63d28;
-  --accent-foreground: #f3efe7;
+  --accent-foreground: #ffffff;
   --destructive: #a63d28;
-  --border: #d8d1c6;
-  --input: #d8d1c6;
+  --border: #e6e5e1;
+  --input: #e6e5e1;
   --ring: #a63d28;
-  --sidebar: #f3efe7;
+  --sidebar: #ffffff;
   --sidebar-foreground: #171310;
   --sidebar-primary: #171310;
-  --sidebar-primary-foreground: #f3efe7;
-  --sidebar-accent: #eae4d8;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f4f4f2;
   --sidebar-accent-foreground: #171310;
-  --sidebar-border: #d8d1c6;
+  --sidebar-border: #e6e5e1;
   --sidebar-ring: #a63d28;
 }
 
 .dark {
   --background: #171310;
-  --foreground: #f3efe7;
+  --foreground: #ffffff;
   --card: #1e1e1c;
-  --card-foreground: #f3efe7;
+  --card-foreground: #ffffff;
   --popover: #1e1e1c;
-  --popover-foreground: #f3efe7;
-  --primary: #f3efe7;
+  --popover-foreground: #ffffff;
+  --primary: #ffffff;
   --primary-foreground: #171310;
   --secondary: #232320;
-  --secondary-foreground: #f3efe7;
+  --secondary-foreground: #ffffff;
   --muted: #232320;
   --muted-foreground: #a8a29a;
   --accent: #a63d28;
-  --accent-foreground: #f3efe7;
+  --accent-foreground: #ffffff;
   --destructive: #a63d28;
-  --border: rgba(243, 239, 231, 0.14);
-  --input: rgba(243, 239, 231, 0.14);
+  --border: rgba(255, 255, 255, 0.14);
+  --input: rgba(255, 255, 255, 0.14);
   --ring: #a63d28;
   --sidebar: #171310;
-  --sidebar-foreground: #f3efe7;
-  --sidebar-primary: #f3efe7;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #ffffff;
   --sidebar-primary-foreground: #171310;
   --sidebar-accent: #232320;
-  --sidebar-accent-foreground: #f3efe7;
-  --sidebar-border: rgba(243, 239, 231, 0.14);
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: rgba(255, 255, 255, 0.14);
   --sidebar-ring: #a63d28;
 }
 
@@ -135,7 +135,7 @@
 
   ::selection {
     background: #a63d28;
-    color: #f3efe7;
+    color: #ffffff;
   }
 
   @media (prefers-reduced-motion: reduce) {
