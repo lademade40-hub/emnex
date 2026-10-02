@@ -13,15 +13,13 @@ import {
 import { BrowserFrame, Kicker, Reveal, TextLink } from "./ui";
 
 /* ---------------------------------------------------------------- */
-/* Selected Work — pill filters, panel cards with ember top line.     */
-/* First project ("all" view) is an oversized featured row.           */
+/* Selected Work — pill filters; EVERY project in a browser mockup.    */
+/* Uniform grid: 3x3 on desktop, 2-col on tablet, stack on mobile.    */
 /* ---------------------------------------------------------------- */
-
-const FEATURED = PROJECTS.filter((p) => p.featured);
 
 export function SelectedWork() {
   const [filter, setFilter] = useState<FilterKey>("all");
-  const visible = FEATURED.filter(
+  const visible = PROJECTS.filter(
     (p) => filter === "all" || p.filter === filter
   );
 
@@ -40,8 +38,9 @@ export function SelectedWork() {
           </Reveal>
           <Reveal delay={0.14}>
             <p className="mt-6 max-w-[620px] font-sans text-[16px] leading-relaxed text-clay">
-              A selection of websites created by EMNEX AI for businesses across
-              travel, real estate, hospitality, creative services, and more.
+              Every website designed &amp; built by EMNEX AI for businesses
+              across travel, real estate, hospitality, creative services, and
+              more — each one shown inside its live browser frame.
             </p>
           </Reveal>
         </div>
@@ -99,19 +98,13 @@ export function SelectedWork() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-x-12 gap-y-14 pt-12 md:grid-cols-2 md:gap-y-16 lg:gap-x-16">
-                {visible.map((p, i) =>
-                  filter === "all" && i === 0 ? (
-                    <Reveal key={p.id} delay={0} y={20} className="h-full md:col-span-2">
-                      <FeaturedCard p={p} />
-                    </Reveal>
-                  ) : (
-                    <Reveal key={p.id} delay={Math.min(i, 5) * 0.07} y={20} className="h-full">
-                      <ProjectCard p={p} />
-                    </Reveal>
-                  )
-                )}
-                {filter === "all" && <EditorialSlot />}
+              <div className="grid grid-cols-1 gap-x-8 gap-y-12 pt-12 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3 lg:gap-x-10">
+                {visible.map((p, i) => (
+                  <Reveal key={p.id} delay={Math.min(i, 5) * 0.07} y={20} className="h-full">
+                    <ProjectCard p={p} />
+                  </Reveal>
+                ))}
+                {filter === "all" && <EditorialNote />}
               </div>
             )}
           </motion.div>
@@ -122,7 +115,7 @@ export function SelectedWork() {
 }
 
 /* ---------------------------------------------------------------- */
-/* Project card — panel with ember top line, lift on hover.           */
+/* Project card — browser mockup on top, text panel below.             */
 /* ---------------------------------------------------------------- */
 
 const cardPanel =
@@ -150,7 +143,7 @@ function ProjectCard({ p }: { p: Project }) {
           src={p.heroShot}
           alt={`${p.name} — live website designed by EMNEX AI`}
           domain={p.domain}
-          sizes="(min-width: 768px) 46vw, 100vw"
+          sizes="(min-width: 1024px) 31vw, (min-width: 768px) 46vw, 100vw"
         />
         <div className="flex flex-1 flex-col p-6 md:p-7">
           <div className="flex items-baseline justify-between gap-4">
@@ -179,79 +172,28 @@ function ProjectCard({ p }: { p: Project }) {
 }
 
 /* ---------------------------------------------------------------- */
-/* Featured card — the first project, full-width oversized row.       */
+/* Closing note — fills the tablet grid cell, full-width on desktop.   */
 /* ---------------------------------------------------------------- */
 
-function FeaturedCard({ p }: { p: Project }) {
+function EditorialNote() {
   return (
-    <article className="group h-full">
-      <a
-        href={p.url}
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label={`Visit the ${p.name} live website`}
-        className={`${cardPanel} lg:grid lg:grid-cols-12`}
-      >
-        <span aria-hidden="true" className={`${cardTopLine} lg:col-span-full`} />
-        <div className="lg:col-span-7">
-          <BrowserFrame
-            flat
-            src={p.heroShot}
-            alt={`${p.name} — live website designed by EMNEX AI`}
-            domain={p.domain}
-            sizes="(min-width: 1024px) 58vw, 100vw"
-          />
-        </div>
-        <div className="flex flex-1 flex-col p-7 md:p-9 lg:col-span-5 lg:justify-center">
-          <div className="flex items-baseline justify-between gap-4">
-            <span className="kicker text-clay">{p.category}</span>
-            <span className="font-serif text-[14px] italic leading-none text-ember/90">
-              {p.index}
-            </span>
-          </div>
-          <h3 className="mt-4 font-serif text-[clamp(1.9rem,3vw,2.6rem)] font-normal leading-[1.08] tracking-[-0.01em] text-ink transition-transform duration-500 ease-out group-hover:translate-x-1">
-            {p.name}
-          </h3>
-          <p className="mt-4 max-w-[440px] font-sans text-[15.5px] leading-relaxed text-clay">
-            {p.description}
+    <Reveal delay={0.2} y={20} className="h-full md:col-span-1 lg:col-span-3">
+      <div className="flex h-full flex-col justify-center gap-7 rounded-[5px] border border-line bg-paper px-7 py-9 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-10 lg:py-10">
+        <div className="max-w-[640px]">
+          <span aria-hidden="true" className="block h-px w-14 bg-ember" />
+          <p className="mt-5 font-serif text-[clamp(1.4rem,2vw,1.75rem)] font-normal leading-[1.28] text-charcoal">
+            Every website on this page was designed, built and launched by
+            EMNEX AI — yours could be the next one here.
           </p>
-          <span className={`${cardVisit} lg:pt-8`}>
-            Visit Live Site
-            <ArrowUpRight
-              className="h-4 w-4 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
-              strokeWidth={1.75}
-            />
-          </span>
         </div>
-      </a>
-    </article>
-  );
-}
-
-/* ---------------------------------------------------------------- */
-/* Sixth cell — quiet editorial note beside Vanta Motorgroup.         */
-/* ---------------------------------------------------------------- */
-
-function EditorialSlot() {
-  return (
-    <Reveal delay={0.32} y={20} className="h-full">
-      <div className="flex h-full flex-col justify-center py-6">
-        <span className="h-px w-14 bg-ember" aria-hidden="true" />
-        <p className="mt-8 max-w-[400px] font-serif text-[clamp(1.5rem,2.2vw,2rem)] font-normal leading-[1.22] text-charcoal">
-          Every website on this page was designed, built and launched by EMNEX
-          AI.
-        </p>
-        <p className="mt-4 max-w-[380px] font-sans text-[15px] leading-relaxed text-clay">
-          Yours could be the next one here.
-        </p>
-        <div className="mt-9">
+        <div className="shrink-0">
           <TextLink href={waLink()} external>
             Start Your Project
           </TextLink>
         </div>
       </div>
     </Reveal>
-  );
+  )
 }
 
 /* ---------------------------------------------------------------- */
