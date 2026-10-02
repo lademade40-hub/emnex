@@ -1,7 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 import {
   FILTERS,
@@ -13,9 +13,8 @@ import {
 import { BrowserFrame, Kicker, Reveal, TextLink } from "./ui";
 
 /* ---------------------------------------------------------------- */
-/* Selected Work — two-column editorial grid, five featured builds.   */
-/* Row 1: Wandermark | Velmora · Row 2: Marlowe & Hart | Sizzle Stack */
-/* Row 3: Vanta Motorgroup | quiet editorial note.                    */
+/* Selected Work — pill filters, panel cards with ember top line.     */
+/* First project ("all" view) is an oversized featured row.           */
 /* ---------------------------------------------------------------- */
 
 const FEATURED = PROJECTS.filter((p) => p.featured);
@@ -47,12 +46,12 @@ export function SelectedWork() {
           </Reveal>
         </div>
 
-        {/* Editorial filter — typography + underline, never pills */}
+        {/* Pill filters — ember fill marks the active industry */}
         <Reveal delay={0.18}>
           <div
             role="tablist"
             aria-label="Filter projects by industry"
-            className="mt-10 flex gap-x-8 gap-y-3 overflow-x-auto border-y border-line py-5 md:flex-wrap md:overflow-visible"
+            className="mt-10 flex flex-wrap gap-2.5"
           >
             {FILTERS.map((f) => {
               const active = filter === f.key;
@@ -62,19 +61,13 @@ export function SelectedWork() {
                   role="tab"
                   aria-selected={active}
                   onClick={() => setFilter(f.key)}
-                  className={`relative shrink-0 whitespace-nowrap pb-1.5 font-sans text-[12px] font-medium uppercase tracking-[0.18em] transition-colors duration-300 ${
+                  className={`rounded-full border px-6 py-3 font-sans text-[11.5px] font-semibold uppercase tracking-[0.16em] transition-all duration-300 ${
                     active
-                      ? "text-ink"
-                      : "text-clay/80 hover:text-charcoal"
+                      ? "border-ember bg-ember text-ivory shadow-[0_12px_26px_-14px_rgba(166,61,40,0.6)]"
+                      : "border-line bg-transparent text-clay hover:border-ink/30 hover:text-ink"
                   }`}
                 >
                   {f.label}
-                  <span
-                    aria-hidden="true"
-                    className={`absolute inset-x-0 bottom-0 h-[2px] bg-ember transition-all duration-300 ${
-                      active ? "opacity-100" : "opacity-0"
-                    }`}
-                  />
                 </button>
               );
             })}
@@ -106,12 +99,18 @@ export function SelectedWork() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 gap-x-12 gap-y-14 pt-12 md:grid-cols-2 md:gap-y-20 lg:gap-x-20">
-                {visible.map((p, i) => (
-                  <Reveal key={p.id} delay={Math.min(i, 5) * 0.07} y={20} className="h-full">
-                    <ProjectCard p={p} />
-                  </Reveal>
-                ))}
+              <div className="grid grid-cols-1 gap-x-12 gap-y-14 pt-12 md:grid-cols-2 md:gap-y-16 lg:gap-x-16">
+                {visible.map((p, i) =>
+                  filter === "all" && i === 0 ? (
+                    <Reveal key={p.id} delay={0} y={20} className="h-full md:col-span-2">
+                      <FeaturedCard p={p} />
+                    </Reveal>
+                  ) : (
+                    <Reveal key={p.id} delay={Math.min(i, 5) * 0.07} y={20} className="h-full">
+                      <ProjectCard p={p} />
+                    </Reveal>
+                  )
+                )}
                 {filter === "all" && <EditorialSlot />}
               </div>
             )}
@@ -123,8 +122,17 @@ export function SelectedWork() {
 }
 
 /* ---------------------------------------------------------------- */
-/* Project card — large mockup first, minimal metadata underneath.    */
+/* Project card — panel with ember top line, lift on hover.           */
 /* ---------------------------------------------------------------- */
+
+const cardPanel =
+  "flex h-full flex-col overflow-hidden rounded-[5px] border border-line bg-paper transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-28px_rgba(23,19,16,0.35)]";
+
+const cardTopLine =
+  "block h-[3px] w-full origin-left scale-x-0 bg-ember transition-transform duration-500 ease-out group-hover:scale-x-100";
+
+const cardVisit =
+  "mt-auto inline-flex items-center gap-1.5 pt-6 font-sans text-[12px] font-semibold uppercase tracking-[0.16em] text-ember";
 
 function ProjectCard({ p }: { p: Project }) {
   return (
@@ -133,33 +141,84 @@ function ProjectCard({ p }: { p: Project }) {
         href={p.url}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label={`View the ${p.name} live website`}
-        className="flex h-full flex-col"
+        aria-label={`Visit the ${p.name} live website`}
+        className={cardPanel}
       >
-        {/* The mockup — the visual does the selling */}
+        <span aria-hidden="true" className={cardTopLine} />
         <BrowserFrame
+          flat
           src={p.heroShot}
           alt={`${p.name} — live website designed by EMNEX AI`}
           domain={p.domain}
           sizes="(min-width: 768px) 46vw, 100vw"
         />
-
-        {/* Project information — secondary, underneath the image */}
-        <div className="flex flex-1 flex-col pt-6">
-          <span className="font-serif text-[15px] italic leading-none text-ember">
-            {p.index}
-          </span>
-          <h3 className="mt-3 font-serif text-[clamp(1.65rem,2.5vw,2.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink transition-transform duration-500 ease-out group-hover:translate-x-1">
+        <div className="flex flex-1 flex-col p-6 md:p-7">
+          <div className="flex items-baseline justify-between gap-4">
+            <span className="kicker text-clay">{p.category}</span>
+            <span className="font-serif text-[14px] italic leading-none text-ember/90">
+              {p.index}
+            </span>
+          </div>
+          <h3 className="mt-3.5 font-serif text-[clamp(1.6rem,2.4vw,2.05rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink transition-transform duration-500 ease-out group-hover:translate-x-1">
             {p.name}
           </h3>
-          <p className="kicker mt-3 text-clay">{p.category}</p>
-          <p className="mt-3.5 max-w-[430px] font-sans text-[15px] leading-relaxed text-clay">
+          <p className="mt-3 max-w-[460px] font-sans text-[14.5px] leading-relaxed text-clay">
             {p.description}
           </p>
-          <span className="mt-auto inline-flex items-center gap-2 pt-6 font-sans text-[12.5px] font-semibold uppercase tracking-[0.16em] text-charcoal/55 transition-colors duration-300 group-hover:text-ember">
-            View Project
-            <ArrowRight
-              className="h-4 w-4 transition-transform duration-300 ease-out group-hover:translate-x-1.5"
+          <span className={cardVisit}>
+            Visit Live Site
+            <ArrowUpRight
+              className="h-4 w-4 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+              strokeWidth={1.75}
+            />
+          </span>
+        </div>
+      </a>
+    </article>
+  );
+}
+
+/* ---------------------------------------------------------------- */
+/* Featured card — the first project, full-width oversized row.       */
+/* ---------------------------------------------------------------- */
+
+function FeaturedCard({ p }: { p: Project }) {
+  return (
+    <article className="group h-full">
+      <a
+        href={p.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`Visit the ${p.name} live website`}
+        className={`${cardPanel} lg:grid lg:grid-cols-12`}
+      >
+        <span aria-hidden="true" className={`${cardTopLine} lg:col-span-full`} />
+        <div className="lg:col-span-7">
+          <BrowserFrame
+            flat
+            src={p.heroShot}
+            alt={`${p.name} — live website designed by EMNEX AI`}
+            domain={p.domain}
+            sizes="(min-width: 1024px) 58vw, 100vw"
+          />
+        </div>
+        <div className="flex flex-1 flex-col p-7 md:p-9 lg:col-span-5 lg:justify-center">
+          <div className="flex items-baseline justify-between gap-4">
+            <span className="kicker text-clay">{p.category}</span>
+            <span className="font-serif text-[14px] italic leading-none text-ember/90">
+              {p.index}
+            </span>
+          </div>
+          <h3 className="mt-4 font-serif text-[clamp(1.9rem,3vw,2.6rem)] font-normal leading-[1.08] tracking-[-0.01em] text-ink transition-transform duration-500 ease-out group-hover:translate-x-1">
+            {p.name}
+          </h3>
+          <p className="mt-4 max-w-[440px] font-sans text-[15.5px] leading-relaxed text-clay">
+            {p.description}
+          </p>
+          <span className={`${cardVisit} lg:pt-8`}>
+            Visit Live Site
+            <ArrowUpRight
+              className="h-4 w-4 transition-transform duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
               strokeWidth={1.75}
             />
           </span>
@@ -259,7 +318,7 @@ export function CloserLook() {
                     </p>
                     <div className="mt-6">
                       <TextLink href={p.url} external>
-                        View Project
+                        Visit Live Site
                       </TextLink>
                     </div>
                   </div>

@@ -180,6 +180,7 @@ export function BrowserFrame({
   className = "",
   sizes = "(min-width: 1024px) 60vw, 100vw",
   interactive = true,
+  flat = false,
 }: {
   src: string;
   alt: string;
@@ -188,10 +189,15 @@ export function BrowserFrame({
   className?: string;
   sizes?: string;
   interactive?: boolean;
+  flat?: boolean;
 }) {
   return (
     <div
-      className={`overflow-hidden rounded-[5px] bg-paper shadow-[0_2px_6px_rgba(21,21,21,0.06),0_36px_80px_-32px_rgba(21,21,21,0.35)] ring-1 ring-ink/10 ${className}`}
+      className={`overflow-hidden rounded-[5px] bg-paper ${
+        flat
+          ? ""
+          : "shadow-[0_2px_6px_rgba(21,21,21,0.06),0_36px_80px_-32px_rgba(21,21,21,0.35)] ring-1 ring-ink/10"
+      } ${className}`}
     >
       {/* Chrome bar */}
       <div className="flex items-center gap-3 border-b border-ink/[0.07] bg-paper px-4 py-2.5">

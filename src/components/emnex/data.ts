@@ -14,19 +14,13 @@ export const waLink = (project?: string) =>
         "Hello EMNEX AI! I'm interested in getting a website for my business. I'd like to discuss my project."
       )}`;
 
-export const EMAIL = "Emnexai@gmail.com";
+export const EMAIL = "emnexai@gmail.com";
+
+export const INSTAGRAM_URL =
+  "https://www.instagram.com/emnex2?stkn=MTN4dWZkenJzcW1ucA==";
 
 export const SOCIALS = [
-  { label: "Instagram", href: "https://www.instagram.com/emnex_ai/?hl=en" },
-  {
-    label: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=61564717200555",
-  },
-  {
-    label: "Contra",
-    href: "https://contra.com/emmanuel_bodas_yh6m4xwt/work?r=emmanuel_bodas_yh6m4xwt",
-  },
-  { label: "Behance", href: "https://www.behance.net/httpsmrbodasnet" },
+  { label: "Instagram", href: INSTAGRAM_URL },
   { label: "WhatsApp", href: waLink() },
 ];
 
