@@ -73,7 +73,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${fraunces.variable} ${instrument.variable} font-sans antialiased bg-ivory text-ink`}
+        className={`${fraunces.variable} ${instrument.variable} font-sans antialiased bg-canvas text-ivory`}
       >
         {children}
       </body>

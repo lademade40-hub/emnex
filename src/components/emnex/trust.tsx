@@ -12,7 +12,7 @@ import { ButtonPrimary, Kicker, Reveal, TextLink } from "./ui";
 
 export function About() {
   return (
-    <section id="about" className="bg-ivory">
+    <section id="about" className="bg-canvas">
       <div className="container-x py-16 md:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Founder photograph — editorial treatment, not a card */}
@@ -34,7 +34,7 @@ export function About() {
                 </div>
               </div>
               <figcaption className="mt-5 flex items-center gap-3 font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-clay/80">
-                <span className="h-[6px] w-[6px] rounded-full bg-teal/80" />
+                <span className="h-[6px] w-[6px] rounded-full bg-teal-soft/80" />
                 The founder behind EMNEX AI
               </figcaption>
             </figure>
@@ -43,10 +43,10 @@ export function About() {
           {/* Text */}
           <div className="lg:col-span-6">
             <Reveal>
-              <Kicker className="dot-teal">About the Founder</Kicker>
+              <Kicker className="dot-teal-soft">About the Founder</Kicker>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="mt-6 font-serif text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink">
+              <h2 className="mt-6 font-serif text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ivory">
                 Thoughtful Website Design. Built Around Your Business.
               </h2>
             </Reveal>
@@ -65,7 +65,7 @@ export function About() {
             </Reveal>
             <Reveal delay={0.2}>
               <div className="mt-9">
-                <ButtonPrimary href="#contact">
+                <ButtonPrimary href="#contact" tone="dark">
                   Let&apos;s Build Your Website
                 </ButtonPrimary>
               </div>
@@ -85,16 +85,16 @@ export function Faq() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-ivory">
+    <section id="faq" className="bg-canvas">
       <div className="container-x py-16 md:py-24">
         <div className="grid gap-14 lg:grid-cols-12 lg:gap-16">
           {/* Heading column */}
           <div className="lg:col-span-5">
             <Reveal>
-              <Kicker className="dot-teal">FAQ</Kicker>
+              <Kicker className="dot-teal-soft">FAQ</Kicker>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="mt-6 font-serif text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink">
+              <h2 className="mt-6 font-serif text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ivory">
                 Questions Before I Build Your Website?
               </h2>
             </Reveal>
@@ -129,20 +129,20 @@ export function Faq() {
                       onClick={() => setOpen(isOpen ? null : i)}
                       className="flex w-full items-center justify-between gap-6 py-6 text-left"
                     >
-                      <span className="font-sans text-[16px] font-semibold text-ink md:text-[16.5px]">
+                      <span className="font-sans text-[16px] font-semibold text-ivory md:text-[16.5px]">
                         {item.q}
                       </span>
                       <span
                         aria-hidden="true"
-                        className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ink/15 transition-colors duration-300"
+                        className="relative flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-ivory/20 transition-colors duration-300"
                       >
                         <span
-                          className={`absolute h-[1.2px] w-[13px] bg-ink transition-transform duration-300 ${
+                          className={`absolute h-[1.2px] w-[13px] bg-ivory transition-transform duration-300 ${
                             isOpen ? "rotate-45" : ""
                           }`}
                         />
                         <span
-                          className={`absolute h-[1.2px] w-[13px] bg-ink transition-transform duration-300 ${
+                          className={`absolute h-[1.2px] w-[13px] bg-ivory transition-transform duration-300 ${
                             isOpen ? "-rotate-45" : ""
                           }`}
                         />
@@ -219,7 +219,7 @@ export function FinalCta() {
             Prefer email?{" "}
             <a
               href={`mailto:${EMAIL}`}
-              className="border-b border-ivory/25 pb-0.5 text-ivory/80 transition-colors duration-300 hover:border-ember hover:text-ember"
+              className="border-b border-ivory/25 pb-0.5 text-ivory/80 transition-colors duration-300 hover:border-ember-soft hover:text-ember-soft"
             >
               {EMAIL}
             </a>

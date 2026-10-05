@@ -24,8 +24,8 @@ import { BrowserFrame, Kicker, Reveal, TextLink } from "./ui";
 /* ---------------------------------------------------------------- */
 
 const ACCENT = {
-  line: "bg-teal",
-  chip: "bg-ember/10 text-ember",
+  line: "bg-teal-soft",
+  chip: "bg-ember/15 text-ember-soft",
 };
 
 export function SelectedWork() {
@@ -35,15 +35,15 @@ export function SelectedWork() {
   );
 
   return (
-    <section id="portfolio" className="bg-ivory">
+    <section id="portfolio" className="bg-canvas">
       <div className="container-x pt-14 pb-16 md:pt-20 md:pb-24">
         {/* Heading */}
         <div className="max-w-[760px]">
           <Reveal>
-            <Kicker className="dot-teal">Selected Work</Kicker>
+            <Kicker className="dot-teal-soft">Selected Work</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
+            <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ivory">
               Websites I&apos;ve Designed &amp; Built for Different Businesses.
             </h2>
           </Reveal>
@@ -74,7 +74,7 @@ export function SelectedWork() {
                   className={`rounded-full border px-6 py-3 font-sans text-[11.5px] font-semibold uppercase tracking-[0.16em] transition-all duration-300 ${
                     active
                       ? "border-ember bg-ember text-ivory shadow-[0_12px_26px_-14px_rgba(166,61,40,0.6)]"
-                      : "border-line bg-transparent text-clay hover:border-ink/30 hover:text-ink"
+                      : "border-line bg-transparent text-clay hover:border-ivory/40 hover:text-ivory"
                   }`}
                 >
                   {f.label}
@@ -136,7 +136,7 @@ const cardTopLine =
   "block h-[3px] w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100";
 
 const cardVisit =
-  "mt-auto inline-flex items-center gap-1.5 pt-6 font-sans text-[12px] font-semibold uppercase tracking-[0.16em] text-ember";
+  "mt-auto inline-flex items-center gap-1.5 pt-6 font-sans text-[12px] font-semibold uppercase tracking-[0.16em] text-ember-soft";
 
 function ProjectCard({
   p,
@@ -171,7 +171,7 @@ function ProjectCard({
               {p.index}
             </span>
           </div>
-          <h3 className="mt-3.5 font-serif text-[clamp(1.6rem,2.4vw,2.05rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink transition-transform duration-500 ease-out group-hover:translate-x-1">
+          <h3 className="mt-3.5 font-serif text-[clamp(1.6rem,2.4vw,2.05rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ivory transition-transform duration-500 ease-out group-hover:translate-x-1">
             {p.name}
           </h3>
           <p className="mt-3 max-w-[460px] font-sans text-[14.5px] leading-relaxed text-clay">
@@ -223,14 +223,14 @@ export function CloserLook() {
   const featured = PROJECTS.slice(0, 3);
 
   return (
-    <section className="bg-ivory">
+    <section className="bg-canvas">
       <div className="container-x py-16 md:py-24">
         <div className="max-w-[760px]">
           <Reveal>
-            <Kicker className="dot-teal">Behind the Work</Kicker>
+            <Kicker className="dot-teal-soft">Behind the Work</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
+            <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ivory">
               A closer look at three projects.
             </h2>
           </Reveal>
@@ -266,12 +266,12 @@ export function CloserLook() {
                   {/* Secondary text column */}
                   <div className={`lg:col-span-4 ${flip ? "lg:order-1" : ""}`}>
                     <div className="flex items-baseline gap-4">
-                      <span className="font-serif text-[15px] italic text-ember">
+                      <span className="font-serif text-[15px] italic text-ember-soft">
                         {p.index}
                       </span>
                       <span className="kicker text-clay">{p.category}</span>
                     </div>
-                    <h3 className="mt-4 font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-normal uppercase leading-[1.05] tracking-[0.005em] text-ink">
+                    <h3 className="mt-4 font-serif text-[clamp(1.8rem,3vw,2.5rem)] font-normal uppercase leading-[1.05] tracking-[0.005em] text-ivory">
                       {p.name}
                     </h3>
                     <p className="mt-5 max-w-[400px] font-sans text-[15.5px] leading-relaxed text-clay">

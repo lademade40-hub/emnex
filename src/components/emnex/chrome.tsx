@@ -29,7 +29,7 @@ export function Wordmark({
       >
         EMNEX
       </span>
-      <span className="font-serif text-[21px] font-light italic text-ember">
+      <span className="font-serif text-[21px] font-light italic text-ember-soft">
         AI
       </span>
     </a>
@@ -63,12 +63,12 @@ export function Header() {
       <header
         className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-300 ${
           scrolled || open
-            ? "border-line bg-ivory/95 backdrop-blur-md"
-            : "border-transparent bg-ivory"
+            ? "border-line bg-canvas/90 backdrop-blur-md"
+            : "border-transparent bg-canvas"
         }`}
       >
         <div className="container-x flex h-[72px] items-center justify-between">
-          <Wordmark />
+          <Wordmark tone="dark" />
 
           {/* Desktop nav */}
           <nav
@@ -79,7 +79,7 @@ export function Header() {
               <a
                 key={link.href}
                 href={link.href}
-                className="font-sans text-[12px] font-medium uppercase tracking-[0.18em] text-charcoal transition-colors duration-300 hover:text-ember"
+                className="font-sans text-[12px] font-medium uppercase tracking-[0.18em] text-charcoal transition-colors duration-300 hover:text-ember-soft"
               >
                 {link.label}
               </a>
@@ -89,7 +89,7 @@ export function Header() {
           <div className="hidden lg:block">
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 rounded-[3px] bg-ink px-6 py-3 font-sans text-[11.5px] font-semibold uppercase tracking-[0.16em] text-ivory transition-colors duration-300 hover:bg-ember"
+              className="inline-flex items-center gap-2 rounded-[3px] bg-ivory px-6 py-3 font-sans text-[11.5px] font-semibold uppercase tracking-[0.16em] text-ink transition-colors duration-300 hover:bg-ember hover:text-ivory"
             >
               Let&apos;s Build Your Website
             </a>
@@ -104,12 +104,12 @@ export function Header() {
             className="relative z-50 flex h-11 w-11 items-center justify-center lg:hidden"
           >
             <span
-              className={`absolute h-[1.5px] w-6 bg-ink transition-all duration-300 ${
+              className={`absolute h-[1.5px] w-6 bg-ivory transition-all duration-300 ${
                 open ? "rotate-45" : "-translate-y-[4px]"
               }`}
             />
             <span
-              className={`absolute h-[1.5px] w-6 bg-ink transition-all duration-300 ${
+              className={`absolute h-[1.5px] w-6 bg-ivory transition-all duration-300 ${
                 open ? "-rotate-45" : "translate-y-[4px]"
               }`}
             />
@@ -125,7 +125,7 @@ export function Header() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeOut" }}
-            className="fixed inset-0 z-40 flex flex-col bg-ivory lg:hidden"
+            className="fixed inset-0 z-40 flex flex-col bg-canvas lg:hidden"
           >
             <div className="mt-[72px] flex flex-1 flex-col justify-between overflow-y-auto px-6 pb-10 pt-10">
               <nav aria-label="Mobile" className="flex flex-col">
@@ -141,7 +141,7 @@ export function Header() {
                       duration: 0.45,
                       ease: [0.22, 1, 0.36, 1],
                     }}
-                    className="border-b border-line py-5 font-serif text-[34px] font-normal leading-tight text-ink"
+                    className="border-b border-line py-5 font-serif text-[34px] font-normal leading-tight text-ivory"
                   >
                     {link.label}
                   </motion.a>
@@ -156,7 +156,7 @@ export function Header() {
                 <a
                   href="#contact"
                   onClick={() => setOpen(false)}
-                  className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-ink px-7 py-4 font-sans text-[12.5px] font-semibold uppercase tracking-[0.16em] text-ivory"
+                  className="inline-flex items-center justify-center gap-2 rounded-[3px] bg-ivory px-7 py-4 font-sans text-[12.5px] font-semibold uppercase tracking-[0.16em] text-ink"
                 >
                   Let&apos;s Build Your Website
                 </a>
@@ -195,7 +195,7 @@ export function Footer() {
             </p>
             <a
               href={`mailto:${EMAIL}`}
-              className="group/link mt-8 inline-flex items-center gap-2 font-serif text-[19px] italic text-ivory transition-colors duration-300 hover:text-ember"
+              className="group/link mt-8 inline-flex items-center gap-2 font-serif text-[19px] italic text-ivory transition-colors duration-300 hover:text-ember-soft"
             >
               {EMAIL}
               <ArrowUpRight
@@ -240,7 +240,7 @@ export function Footer() {
                   >
                     {s.label}
                     <ArrowUpRight
-                      className="h-3.5 w-3.5 text-ivory/40 transition-all duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-ember"
+                      className="h-3.5 w-3.5 text-ivory/40 transition-all duration-300 group-hover/link:-translate-y-0.5 group-hover/link:translate-x-0.5 group-hover/link:text-ember-soft"
                       strokeWidth={1.5}
                     />
                   </a>

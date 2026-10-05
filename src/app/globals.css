@@ -5,10 +5,9 @@
 
 /* ============================================================
    EMNEX AI — Editorial Design System
-   Strict three-colour system (60/30/10):
-   cool mist-stone canvas (green family) / deep pine-teal
-   structure / terracotta ember accents — deep colours in
-   small, deliberate doses.
+   Midnight Forest — full-dark, layered greens (60/30/10):
+   forest-night canvas / pine-teal bands / terracotta ember
+   accents — light type, deep colours in small, deliberate doses.
    ============================================================ */
 
 @theme inline {
@@ -17,24 +16,25 @@
     "Segoe UI", sans-serif;
   --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
 
-  /* Brand palette — strict three-colour system:
-     cool mist-stone canvas / deep pine-teal structure / terracotta ember
-     accents. Canvas + structure share one green hue family, so the page
-     reads as a single system. (tints of a hue are shades, not new colours)
-     NOTE: token names (ivory/paper/stone) are semantic — "ivory" now
-     carries the mist-stone canvas value. */
+  /* Brand palette — Midnight Forest (full dark):
+     forest-night canvas #0a1411 (deepest) / pine-teal bands #0f2724 /
+     elevated panels #11251f — all one green family, layered by depth.
+     Type is warm mist; ember = action, teal-soft = wayfinding.
+     NOTE: token names are semantic legacy — "ivory" carries the light
+     type/button value, "ink" the pine band, "clay" the light body text. */
+  --color-canvas: #0a1411;
   --color-ivory: #e2e8e3;
   --color-ink: #0f2724;
-  --color-charcoal: #22312e;
-  --color-clay: #57685f;
-  --color-line: #c7d2c9;
+  --color-charcoal: #cbd8d0;
+  --color-clay: #a3b7ad;
+  --color-line: #223a33;
   --color-ember: #a63d28;
-  --color-ember-soft: #c65a3b;
+  --color-ember-soft: #cf6a4a;
   --color-teal: #1d524c;
   --color-teal-soft: #8ab8ae;
-  --color-paper: #f2f6f2;
-  --color-ivory-deep: #d4ddd5;
-  --color-stone-warm: #d4ddd5;
+  --color-paper: #11251f;
+  --color-ivory-deep: #0d1c17;
+  --color-stone-warm: #0d1c17;
 
   /* shadcn token bridge (kept for component compatibility) */
   --color-background: var(--background);
@@ -71,61 +71,61 @@
 
 :root {
   --radius: 0.25rem;
-  --background: #e2e8e3;
-  --foreground: #22312e;
-  --card: #f2f6f2;
-  --card-foreground: #22312e;
-  --popover: #f2f6f2;
-  --popover-foreground: #22312e;
-  --primary: #0f2724;
-  --primary-foreground: #e2e8e3;
-  --secondary: #d4ddd5;
-  --secondary-foreground: #22312e;
-  --muted: #d4ddd5;
-  --muted-foreground: #57685f;
+  --background: #0a1411;
+  --foreground: #e2e8e3;
+  --card: #11251f;
+  --card-foreground: #e2e8e3;
+  --popover: #11251f;
+  --popover-foreground: #e2e8e3;
+  --primary: #e2e8e3;
+  --primary-foreground: #0a1411;
+  --secondary: #11251f;
+  --secondary-foreground: #e2e8e3;
+  --muted: #11251f;
+  --muted-foreground: #a3b7ad;
   --accent: #a63d28;
   --accent-foreground: #e2e8e3;
   --destructive: #a63d28;
-  --border: #c7d2c9;
-  --input: #c7d2c9;
+  --border: #223a33;
+  --input: #223a33;
   --ring: #a63d28;
-  --sidebar: #f2f6f2;
-  --sidebar-foreground: #22312e;
-  --sidebar-primary: #0f2724;
-  --sidebar-primary-foreground: #e2e8e3;
-  --sidebar-accent: #d4ddd5;
-  --sidebar-accent-foreground: #22312e;
-  --sidebar-border: #c7d2c9;
+  --sidebar: #11251f;
+  --sidebar-foreground: #e2e8e3;
+  --sidebar-primary: #e2e8e3;
+  --sidebar-primary-foreground: #0a1411;
+  --sidebar-accent: #11251f;
+  --sidebar-accent-foreground: #e2e8e3;
+  --sidebar-border: #223a33;
   --sidebar-ring: #a63d28;
 }
 
 .dark {
-  --background: #0f2724;
+  --background: #0a1411;
   --foreground: #e2e8e3;
-  --card: #14312d;
+  --card: #11251f;
   --card-foreground: #e2e8e3;
-  --popover: #14312d;
+  --popover: #11251f;
   --popover-foreground: #e2e8e3;
   --primary: #e2e8e3;
-  --primary-foreground: #0f2724;
-  --secondary: #14312d;
+  --primary-foreground: #0a1411;
+  --secondary: #11251f;
   --secondary-foreground: #e2e8e3;
-  --muted: #14312d;
-  --muted-foreground: #8ab8ae;
-  --accent: #c65a3b;
-  --accent-foreground: #e2e8e3;
-  --destructive: #c65a3b;
-  --border: rgba(255, 255, 255, 0.14);
-  --input: rgba(255, 255, 255, 0.14);
-  --ring: #c65a3b;
-  --sidebar: #0f2724;
+  --muted: #11251f;
+  --muted-foreground: #a3b7ad;
+  --accent: #cf6a4a;
+  --accent-foreground: #0a1411;
+  --destructive: #cf6a4a;
+  --border: rgba(255, 255, 255, 0.12);
+  --input: rgba(255, 255, 255, 0.12);
+  --ring: #cf6a4a;
+  --sidebar: #11251f;
   --sidebar-foreground: #e2e8e3;
   --sidebar-primary: #e2e8e3;
-  --sidebar-primary-foreground: #0f2724;
-  --sidebar-accent: #14312d;
+  --sidebar-primary-foreground: #0a1411;
+  --sidebar-accent: #11251f;
   --sidebar-accent-foreground: #e2e8e3;
-  --sidebar-border: rgba(255, 255, 255, 0.14);
-  --sidebar-ring: #c65a3b;
+  --sidebar-border: rgba(255, 255, 255, 0.12);
+  --sidebar-ring: #cf6a4a;
 }
 
 @layer base {
@@ -139,7 +139,7 @@
   }
 
   body {
-    @apply bg-ivory text-ink;
+    @apply bg-canvas text-ivory;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }

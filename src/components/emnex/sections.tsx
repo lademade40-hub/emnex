@@ -42,7 +42,7 @@ export function Problem() {
                   i === PROBLEMS.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span className="font-serif text-[15px] italic text-ember-soft">
+                <span className="font-serif text-[15px] italic text-ember-soft-soft">
                   {p.index}
                 </span>
                 <h3 className="font-serif text-[22px] font-normal leading-snug text-ivory md:text-[26px]">
@@ -61,19 +61,19 @@ export function Problem() {
 }
 
 /* ---------------------------------------------------------------- */
-/* Solution — Warm Cream editorial rows                               */
+/* Solution — Deep forest-night editorial rows */
 /* ---------------------------------------------------------------- */
 
 export function Solution() {
   return (
-    <section className="bg-ivory">
+    <section className="bg-canvas">
       <div className="container-x py-16 md:py-24">
         <div className="max-w-[780px]">
           <Reveal>
-            <Kicker className="dot-teal">The Way Forward</Kicker>
+            <Kicker className="dot-teal-soft">The Way Forward</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
-            <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
+            <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ivory">
               A Professional Website. Without the Unnecessary Hosting Burden.
             </h2>
           </Reveal>
@@ -98,10 +98,10 @@ export function Solution() {
                   i === SOLUTIONS.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span className="font-serif text-[15px] italic text-ember">
+                <span className="font-serif text-[15px] italic text-ember-soft">
                   {s.index}
                 </span>
-                <h3 className="font-serif text-[22px] font-normal leading-snug text-ink md:text-[26px]">
+                <h3 className="font-serif text-[22px] font-normal leading-snug text-ivory md:text-[26px]">
                   {s.title}
                 </h3>
                 <p className="col-span-2 mt-3 max-w-[560px] font-sans text-[15px] leading-relaxed text-clay md:col-span-1 md:mt-0">
@@ -122,15 +122,15 @@ export function Solution() {
 
 export function Services() {
   return (
-    <section id="services" className="bg-ivory">
+    <section id="services" className="bg-canvas">
       <div className="container-x py-16 md:py-24">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-[640px]">
             <Reveal>
-              <Kicker className="dot-teal">Services</Kicker>
+              <Kicker className="dot-teal-soft">Services</Kicker>
             </Reveal>
             <Reveal delay={0.08}>
-              <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
+              <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ivory">
                 Everything You Need to Establish Your Business Online.
               </h2>
             </Reveal>
@@ -154,17 +154,17 @@ export function Services() {
                   i === SERVICES.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span className="font-serif text-[14px] italic text-ember">
+                <span className="font-serif text-[14px] italic text-ember-soft">
                   {s.index}
                 </span>
-                <h3 className="font-serif text-[21px] font-normal leading-snug text-ink transition-colors duration-300 group-hover:text-ember md:text-[25px]">
+                <h3 className="font-serif text-[21px] font-normal leading-snug text-ivory transition-colors duration-300 group-hover:text-ember-soft md:text-[25px]">
                   {s.name}
                 </h3>
                 <p className="col-span-3 mt-2.5 max-w-[520px] font-sans text-[14.5px] leading-relaxed text-clay md:col-span-1 md:mt-0">
                   {s.body}
                 </p>
                 <ArrowRight
-                  className="hidden h-[18px] w-[18px] text-ink/40 transition-all duration-300 ease-out group-hover:translate-x-1.5 group-hover:text-ember md:block"
+                  className="hidden h-[18px] w-[18px] text-ivory/40 transition-all duration-300 ease-out group-hover:translate-x-1.5 group-hover:text-ember-soft md:block"
                   strokeWidth={1.5}
                 />
               </a>
@@ -175,7 +175,7 @@ export function Services() {
         <Reveal delay={0.1}>
           <div className="mt-12 flex flex-col gap-7 border-t border-line pt-9 md:flex-row md:items-center md:justify-between">
             <div className="max-w-[520px]">
-              <h3 className="font-serif text-[22px] font-normal text-ink">
+              <h3 className="font-serif text-[22px] font-normal text-ivory">
                 Not sure which one you need?
               </h3>
               <p className="mt-2.5 font-sans text-[15px] leading-relaxed text-clay">
@@ -183,7 +183,7 @@ export function Services() {
                 the right approach and quote for your exact project.
               </p>
             </div>
-            <ButtonPrimary href="#contact" className="shrink-0">
+            <ButtonPrimary href="#contact" tone="dark" className="shrink-0">
               Discuss Your Project
             </ButtonPrimary>
           </div>

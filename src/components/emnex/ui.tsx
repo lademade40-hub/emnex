@@ -146,8 +146,8 @@ export function TextLink({
       {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
       className={`group/link inline-flex items-center gap-2 font-sans text-[12.5px] font-semibold uppercase tracking-[0.16em] transition-colors duration-300 ${
         tone === "light"
-          ? "text-ink hover:text-ember"
-          : "text-ivory hover:text-ember"
+          ? "text-ivory hover:text-ember-soft"
+          : "text-ivory hover:text-ember-soft"
       } ${className}`}
     >
       <span className="border-b border-current pb-1">{children}</span>
@@ -196,17 +196,17 @@ export function BrowserFrame({
       className={`overflow-hidden rounded-[5px] bg-paper ${
         flat
           ? ""
-          : "shadow-[0_2px_6px_rgba(21,21,21,0.06),0_36px_80px_-32px_rgba(21,21,21,0.35)] ring-1 ring-ink/10"
+          : "shadow-[0_2px_6px_rgba(0,0,0,0.3),0_36px_80px_-32px_rgba(0,0,0,0.6)] ring-1 ring-ivory/10"
       } ${className}`}
     >
       {/* Chrome bar */}
-      <div className="flex items-center gap-3 border-b border-ink/[0.07] bg-paper px-4 py-2.5">
+      <div className="flex items-center gap-3 border-b border-ivory/[0.08] bg-paper px-4 py-2.5">
         <div className="flex shrink-0 items-center gap-1.5">
-          <span className="h-[7px] w-[7px] rounded-full bg-line" />
-          <span className="h-[7px] w-[7px] rounded-full bg-line" />
-          <span className="h-[7px] w-[7px] rounded-full bg-line" />
+          <span className="h-[7px] w-[7px] rounded-full bg-ivory/20" />
+          <span className="h-[7px] w-[7px] rounded-full bg-ivory/20" />
+          <span className="h-[7px] w-[7px] rounded-full bg-ivory/20" />
         </div>
-        <div className="mx-auto hidden max-w-[62%] items-center gap-1.5 truncate rounded-full bg-ivory px-4 py-1 sm:flex">
+        <div className="mx-auto hidden max-w-[62%] items-center gap-1.5 truncate rounded-full bg-canvas px-4 py-1 sm:flex">
           {domain ? (
             <span className="truncate font-sans text-[10.5px] tracking-[0.04em] text-clay">
               {domain}
