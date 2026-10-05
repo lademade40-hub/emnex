@@ -12,14 +12,14 @@ const TICKER_ITEMS = [
 ];
 
 function TickerRow() {
-  const tickerDots = ["bg-ember/80", "bg-teal/80", "bg-gold/80"];
+  const tickerDots = ["bg-ember/80", "bg-teal-soft/80"];
   return (
     <div className="flex shrink-0 items-center" aria-hidden="true">
       {TICKER_ITEMS.map((item, i) => (
         <span key={i} className="flex items-center">
           <span className="flex items-center gap-2.5 px-7">
             <span
-              className={`h-[6px] w-[6px] rounded-full ${tickerDots[i % 3]}`}
+              className={`h-[6px] w-[6px] rounded-full ${tickerDots[i % 2]}`}
             />
             <span className="whitespace-nowrap font-sans text-[11px] font-medium uppercase tracking-[0.22em] text-ivory/70">
               {item}
@@ -89,7 +89,7 @@ export function Hero() {
           LAYER 2 — existing hero content, centered over the photo.
           Same copy, same type scale, no box, no panel. */}
       <div className="container-x relative z-10 flex min-h-[90vh] flex-col items-center justify-center pb-16 pt-[124px] text-center md:pb-20 md:pt-[150px]">
-        <motion.p {...fade(0.05)} className="kicker rule-dot text-ivory/80">
+        <motion.p {...fade(0.05)} className="kicker rule-dot dot-teal-soft text-ivory/80">
           EMNEX AI — AI-Assisted Website Design Studio
         </motion.p>
 
@@ -98,7 +98,7 @@ export function Hero() {
           className="mt-7 max-w-[900px] font-serif text-[clamp(2.5rem,5.7vw,4.75rem)] font-normal leading-[1.06] tracking-[-0.012em] text-ivory"
         >
           What if your business website didn&apos;t come with{" "}
-          <em className="font-light italic text-ember">
+          <em className="font-light italic text-ember-soft">
             monthly hosting fees?
           </em>
         </motion.h1>

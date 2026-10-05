@@ -12,7 +12,7 @@ import { ButtonPrimary, Kicker, Reveal, TextLink } from "./ui";
 
 export function About() {
   return (
-    <section id="about" className="bg-butter">
+    <section id="about" className="bg-ivory">
       <div className="container-x py-16 md:py-24">
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           {/* Founder photograph — editorial treatment, not a card */}
@@ -91,7 +91,7 @@ export function Faq() {
           {/* Heading column */}
           <div className="lg:col-span-5">
             <Reveal>
-              <Kicker className="dot-gold">FAQ</Kicker>
+              <Kicker className="dot-teal">FAQ</Kicker>
             </Reveal>
             <Reveal delay={0.08}>
               <h2 className="mt-6 font-serif text-[clamp(2rem,4vw,3.2rem)] font-normal leading-[1.12] tracking-[-0.01em] text-ink">
@@ -186,14 +186,14 @@ export function FinalCta() {
     <section id="contact" className="bg-ink text-ivory">
       <div className="container-x pt-20 pb-16 text-center md:pt-28 md:pb-24">
         <Reveal>
-          <p className="kicker rule-dot justify-center text-ivory/60">
+          <p className="kicker rule-dot dot-teal-soft justify-center text-ivory/60">
             Start the Conversation
           </p>
         </Reveal>
         <Reveal delay={0.08}>
           <h2 className="mx-auto mt-7 max-w-[880px] font-serif text-[clamp(2.3rem,5.2vw,4.4rem)] font-normal leading-[1.08] tracking-[-0.012em]">
             Let&apos;s Put Your Business on the Internet.{" "}
-            <em className="font-light italic text-ember">The Right Way.</em>
+            <em className="font-light italic text-ember-soft">The Right Way.</em>
           </h2>
         </Reveal>
         <Reveal delay={0.14}>

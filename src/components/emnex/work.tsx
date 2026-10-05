@@ -18,15 +18,15 @@ import { BrowserFrame, Kicker, Reveal, TextLink } from "./ui";
 /* ---------------------------------------------------------------- */
 
 /* ---------------------------------------------------------------- */
-/* Rotating accent trio — echoes the portfolio's own palette:         */
-/* ember red, ocean teal (Wandermark/Voyara), bronze gold (Velmora).  */
+/* Strict accent discipline:                                          */
+/* teal = structure (hover toplines), ember = action (index chips,     */
+/* visit links). No rotation — one consistent system.                  */
 /* ---------------------------------------------------------------- */
 
-const ACCENTS = [
-  { num: "text-ember/90", line: "bg-ember", chip: "bg-ember/10 text-ember" },
-  { num: "text-teal", line: "bg-teal", chip: "bg-teal/10 text-teal" },
-  { num: "text-gold", line: "bg-gold", chip: "bg-gold/10 text-gold" },
-];
+const ACCENT = {
+  line: "bg-teal",
+  chip: "bg-ember/10 text-ember",
+};
 
 export function SelectedWork() {
   const [filter, setFilter] = useState<FilterKey>("all");
@@ -40,7 +40,7 @@ export function SelectedWork() {
         {/* Heading */}
         <div className="max-w-[760px]">
           <Reveal>
-            <Kicker>Selected Work</Kicker>
+            <Kicker className="dot-teal">Selected Work</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
@@ -112,7 +112,7 @@ export function SelectedWork() {
               <div className="grid grid-cols-1 gap-x-8 gap-y-12 pt-12 md:grid-cols-2 md:gap-y-14 lg:grid-cols-3 lg:gap-x-10">
                 {visible.map((p, i) => (
                   <Reveal key={p.id} delay={Math.min(i, 5) * 0.07} y={20} className="h-full">
-                    <ProjectCard p={p} accent={ACCENTS[i % 3]} />
+                    <ProjectCard p={p} accent={ACCENT} />
                   </Reveal>
                 ))}
                 {filter === "all" && <EditorialNote />}
@@ -130,7 +130,7 @@ export function SelectedWork() {
 /* ---------------------------------------------------------------- */
 
 const cardPanel =
-  "flex h-full flex-col overflow-hidden rounded-[5px] border border-line bg-paper transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-28px_rgba(23,19,16,0.35)]";
+  "flex h-full flex-col overflow-hidden rounded-[5px] border border-line bg-paper transition-all duration-500 ease-out hover:-translate-y-1.5 hover:shadow-[0_30px_60px_-28px_rgba(15,39,36,0.4)]";
 
 const cardTopLine =
   "block h-[3px] w-full origin-left scale-x-0 transition-transform duration-500 ease-out group-hover:scale-x-100";
@@ -143,7 +143,7 @@ function ProjectCard({
   accent,
 }: {
   p: Project;
-  accent: { num: string; line: string; chip: string };
+  accent: { line: string; chip: string };
 }) {
   return (
     <article className="group h-full">
@@ -197,13 +197,9 @@ function ProjectCard({
 function EditorialNote() {
   return (
     <Reveal delay={0.2} y={20} className="h-full md:col-span-1 lg:col-span-3">
-      <div className="flex h-full flex-col justify-center gap-7 rounded-[5px] border border-line bg-gradient-to-r from-blush via-paper to-sea px-7 py-9 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-10 lg:py-10">
+      <div className="flex h-full flex-col justify-center gap-7 rounded-[5px] border border-line bg-paper px-7 py-9 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:px-10 lg:py-10">
         <div className="max-w-[640px]">
-          <span aria-hidden="true" className="flex gap-1.5">
-            <span className="h-1.5 w-9 rounded-full bg-ember" />
-            <span className="h-1.5 w-9 rounded-full bg-teal" />
-            <span className="h-1.5 w-9 rounded-full bg-gold" />
-          </span>
+          <span aria-hidden="true" className="block h-[3px] w-14 bg-ember" />
           <p className="mt-5 font-serif text-[clamp(1.4rem,2vw,1.75rem)] font-normal leading-[1.28] text-charcoal">
             Every website on this page was designed, built and launched by
             EMNEX AI — yours could be the next one here.
@@ -225,14 +221,13 @@ function EditorialNote() {
 
 export function CloserLook() {
   const featured = PROJECTS.slice(0, 3);
-  const closerAccents = ["text-ember", "text-teal", "text-gold"];
 
   return (
-    <section className="bg-blush">
+    <section className="bg-ivory">
       <div className="container-x py-16 md:py-24">
         <div className="max-w-[760px]">
           <Reveal>
-            <Kicker className="dot-gold">Behind the Work</Kicker>
+            <Kicker className="dot-teal">Behind the Work</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em] text-ink">
@@ -271,9 +266,7 @@ export function CloserLook() {
                   {/* Secondary text column */}
                   <div className={`lg:col-span-4 ${flip ? "lg:order-1" : ""}`}>
                     <div className="flex items-baseline gap-4">
-                      <span
-                        className={`font-serif text-[15px] italic ${closerAccents[i % 3]}`}
-                      >
+                      <span className="font-serif text-[15px] italic text-ember">
                         {p.index}
                       </span>
                       <span className="kicker text-clay">{p.category}</span>

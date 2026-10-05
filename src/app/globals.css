@@ -5,9 +5,9 @@
 
 /* ============================================================
    EMNEX AI — Editorial Design System
-   Multi-colour gallery: warm sandstone base + per-section tints
-   (sage / seafoam / blush / butter) drawn from the portfolio's own
-   palette, with rotating ember/teal/gold accents throughout.
+   Strict three-colour system (60/30/10):
+   warm cream canvas / deep pine-teal structure / terracotta
+   ember accents — deep colours in small, deliberate doses.
    ============================================================ */
 
 @theme inline {
@@ -16,28 +16,21 @@
     "Segoe UI", sans-serif;
   --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
 
-  /* Brand palette — warm sandstone gallery theme */
-  --color-ivory: #f2e8d5;
-  --color-ink: #171310;
-  --color-charcoal: #3a332a;
-  --color-clay: #7a6a57;
-  --color-line: #ddd0b4;
+  /* Brand palette — strict three-colour system:
+     warm cream canvas / deep pine-teal structure / terracotta ember accents.
+     (tints of the same hue are shades, not new colours) */
+  --color-ivory: #f4eee1;
+  --color-ink: #0f2724;
+  --color-charcoal: #22312e;
+  --color-clay: #766b59;
+  --color-line: #ded4bd;
   --color-ember: #a63d28;
-  --color-teal: #23655f;
-  --color-gold: #9c6d2c;
-  --color-paper: #fbf7ee;
-  --color-ivory-deep: #e8dbc0;
-  --color-stone-warm: #e8dbc0;
-
-  /* Section tints — soft colour journey, one per light band */
-  --color-sage: #e7edda;
-  --color-sea: #dde9e1;
-  --color-blush: #f4e1d4;
-  --color-butter: #f5e8cb;
-
-  /* Light accent variants — for rotating colour on espresso sections */
-  --color-teal-soft: #93c4bc;
-  --color-gold-soft: #ddb76b;
+  --color-ember-soft: #c65a3b;
+  --color-teal: #1d524c;
+  --color-teal-soft: #8ab8ae;
+  --color-paper: #fbf8f1;
+  --color-ivory-deep: #e7dfcc;
+  --color-stone-warm: #e7dfcc;
 
   /* shadcn token bridge (kept for component compatibility) */
   --color-background: var(--background);
@@ -74,61 +67,61 @@
 
 :root {
   --radius: 0.25rem;
-  --background: #f2e8d5;
-  --foreground: #171310;
-  --card: #fbf7ee;
-  --card-foreground: #171310;
-  --popover: #fbf7ee;
-  --popover-foreground: #171310;
-  --primary: #171310;
-  --primary-foreground: #fbf7ee;
-  --secondary: #e8dbc0;
-  --secondary-foreground: #171310;
-  --muted: #e8dbc0;
-  --muted-foreground: #7a6a57;
+  --background: #f4eee1;
+  --foreground: #22312e;
+  --card: #fbf8f1;
+  --card-foreground: #22312e;
+  --popover: #fbf8f1;
+  --popover-foreground: #22312e;
+  --primary: #0f2724;
+  --primary-foreground: #f4eee1;
+  --secondary: #e7dfcc;
+  --secondary-foreground: #22312e;
+  --muted: #e7dfcc;
+  --muted-foreground: #766b59;
   --accent: #a63d28;
-  --accent-foreground: #fbf7ee;
+  --accent-foreground: #f4eee1;
   --destructive: #a63d28;
-  --border: #ddd0b4;
-  --input: #ddd0b4;
+  --border: #ded4bd;
+  --input: #ded4bd;
   --ring: #a63d28;
-  --sidebar: #fbf7ee;
-  --sidebar-foreground: #171310;
-  --sidebar-primary: #171310;
-  --sidebar-primary-foreground: #fbf7ee;
-  --sidebar-accent: #e8dbc0;
-  --sidebar-accent-foreground: #171310;
-  --sidebar-border: #ddd0b4;
+  --sidebar: #fbf8f1;
+  --sidebar-foreground: #22312e;
+  --sidebar-primary: #0f2724;
+  --sidebar-primary-foreground: #f4eee1;
+  --sidebar-accent: #e7dfcc;
+  --sidebar-accent-foreground: #22312e;
+  --sidebar-border: #ded4bd;
   --sidebar-ring: #a63d28;
 }
 
 .dark {
-  --background: #171310;
-  --foreground: #ffffff;
-  --card: #1e1e1c;
-  --card-foreground: #ffffff;
-  --popover: #1e1e1c;
-  --popover-foreground: #ffffff;
-  --primary: #ffffff;
-  --primary-foreground: #171310;
-  --secondary: #232320;
-  --secondary-foreground: #ffffff;
-  --muted: #232320;
-  --muted-foreground: #a8a29a;
-  --accent: #a63d28;
-  --accent-foreground: #ffffff;
-  --destructive: #a63d28;
+  --background: #0f2724;
+  --foreground: #f4eee1;
+  --card: #14312d;
+  --card-foreground: #f4eee1;
+  --popover: #14312d;
+  --popover-foreground: #f4eee1;
+  --primary: #f4eee1;
+  --primary-foreground: #0f2724;
+  --secondary: #14312d;
+  --secondary-foreground: #f4eee1;
+  --muted: #14312d;
+  --muted-foreground: #8ab8ae;
+  --accent: #c65a3b;
+  --accent-foreground: #f4eee1;
+  --destructive: #c65a3b;
   --border: rgba(255, 255, 255, 0.14);
   --input: rgba(255, 255, 255, 0.14);
-  --ring: #a63d28;
-  --sidebar: #171310;
-  --sidebar-foreground: #ffffff;
-  --sidebar-primary: #ffffff;
-  --sidebar-primary-foreground: #171310;
-  --sidebar-accent: #232320;
-  --sidebar-accent-foreground: #ffffff;
+  --ring: #c65a3b;
+  --sidebar: #0f2724;
+  --sidebar-foreground: #f4eee1;
+  --sidebar-primary: #f4eee1;
+  --sidebar-primary-foreground: #0f2724;
+  --sidebar-accent: #14312d;
+  --sidebar-accent-foreground: #f4eee1;
   --sidebar-border: rgba(255, 255, 255, 0.14);
-  --sidebar-ring: #a63d28;
+  --sidebar-ring: #c65a3b;
 }
 
 @layer base {
@@ -149,7 +142,7 @@
 
   ::selection {
     background: #a63d28;
-    color: #fbf7ee;
+    color: #f4eee1;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -177,14 +170,15 @@
     @apply font-sans text-[11px] font-medium uppercase tracking-[0.22em];
   }
 
-  /* Thin rule under section kickers — accent color via --dot */
+  /* Thin rule under section kickers — accent color via --dot.
+     System: teal = wayfinding, ember = action. */
   .rule-dot::before {
     content: "";
     display: inline-block;
     width: 7px;
     height: 7px;
     border-radius: 9999px;
-    background: var(--dot, #a63d28);
+    background: var(--dot, #1d524c);
     margin-right: 12px;
     vertical-align: middle;
     transform: translateY(-1px);
@@ -192,10 +186,10 @@
 
   /* Accent variants for the kicker dot */
   .dot-teal {
-    --dot: #23655f;
+    --dot: #1d524c;
   }
-  .dot-gold {
-    --dot: #9c6d2c;
+  .dot-teal-soft {
+    --dot: #8ab8ae;
   }
 
   /* Editorial link with animated arrow */

@@ -5,10 +5,8 @@ import { PROCESS_STEPS, PROBLEMS, SERVICES, SOLUTIONS } from "./data";
 import { ButtonPrimary, Kicker, Reveal } from "./ui";
 
 /* ---------------------------------------------------------------- */
-/* Problem — Deep Ink editorial rows, rotating soft accents           */
+/* Problem — Deep Teal-Ink editorial rows, ember index accents        */
 /* ---------------------------------------------------------------- */
-
-const darkAccents = ["text-ember", "text-teal-soft", "text-gold-soft"];
 
 export function Problem() {
   return (
@@ -16,7 +14,7 @@ export function Problem() {
       <div className="container-x pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="max-w-[780px]">
           <Reveal>
-            <Kicker tone="dark">The Everyday Problem</Kicker>
+            <Kicker tone="dark" className="dot-teal-soft">The Everyday Problem</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em]">
@@ -44,9 +42,7 @@ export function Problem() {
                   i === PROBLEMS.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span
-                  className={`font-serif text-[15px] italic ${darkAccents[i % 3]}`}
-                >
+                <span className="font-serif text-[15px] italic text-ember-soft">
                   {p.index}
                 </span>
                 <h3 className="font-serif text-[22px] font-normal leading-snug text-ivory md:text-[26px]">
@@ -65,14 +61,12 @@ export function Problem() {
 }
 
 /* ---------------------------------------------------------------- */
-/* Solution — Soft Sage editorial rows, rotating accents              */
+/* Solution — Warm Cream editorial rows                               */
 /* ---------------------------------------------------------------- */
-
-const lightAccents = ["text-ember", "text-teal", "text-gold"];
 
 export function Solution() {
   return (
-    <section className="bg-sage">
+    <section className="bg-ivory">
       <div className="container-x py-16 md:py-24">
         <div className="max-w-[780px]">
           <Reveal>
@@ -104,9 +98,7 @@ export function Solution() {
                   i === SOLUTIONS.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span
-                  className={`font-serif text-[15px] italic ${lightAccents[i % 3]}`}
-                >
+                <span className="font-serif text-[15px] italic text-ember">
                   {s.index}
                 </span>
                 <h3 className="font-serif text-[22px] font-normal leading-snug text-ink md:text-[26px]">
@@ -130,7 +122,7 @@ export function Solution() {
 
 export function Services() {
   return (
-    <section id="services" className="bg-sea">
+    <section id="services" className="bg-ivory">
       <div className="container-x py-16 md:py-24">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div className="max-w-[640px]">
@@ -153,9 +145,7 @@ export function Services() {
         </div>
 
         <div className="mt-12 md:mt-14">
-          {SERVICES.map((s, i) => {
-            const serviceAccents = ["text-ember", "text-teal", "text-gold"];
-            return (
+          {SERVICES.map((s, i) => (
             <Reveal key={s.index} delay={0.04 * i} y={14}>
               <a
                 href="#contact"
@@ -164,9 +154,7 @@ export function Services() {
                   i === SERVICES.length - 1 ? "border-b" : ""
                 }`}
               >
-                <span
-                  className={`font-serif text-[14px] italic ${serviceAccents[i % 3]}`}
-                >
+                <span className="font-serif text-[14px] italic text-ember">
                   {s.index}
                 </span>
                 <h3 className="font-serif text-[21px] font-normal leading-snug text-ink transition-colors duration-300 group-hover:text-ember md:text-[25px]">
@@ -181,8 +169,7 @@ export function Services() {
                 />
               </a>
             </Reveal>
-            );
-          })}
+          ))}
         </div>
 
         <Reveal delay={0.1}>
@@ -216,7 +203,7 @@ export function Process() {
       <div className="container-x pt-20 pb-16 md:pt-28 md:pb-24">
         <div className="max-w-[720px]">
           <Reveal>
-            <Kicker tone="dark">How It Works</Kicker>
+            <Kicker tone="dark" className="dot-teal-soft">How It Works</Kicker>
           </Reveal>
           <Reveal delay={0.08}>
             <h2 className="mt-6 font-serif text-[clamp(2rem,4.2vw,3.4rem)] font-normal leading-[1.1] tracking-[-0.01em]">
@@ -226,20 +213,12 @@ export function Process() {
         </div>
 
         <div className="mt-12 grid gap-x-10 gap-y-12 md:mt-16 md:grid-cols-2 lg:grid-cols-4">
-          {PROCESS_STEPS.map((step, i) => {
-            const stepAccent = [
-              "border-ember/60 text-ember",
-              "border-teal-soft/70 text-teal-soft",
-              "border-gold-soft/70 text-gold-soft",
-              "border-ivory/40 text-ivory",
-            ][i % 4];
-            const [barColor, dotColor] = stepAccent.split(" ");
-            return (
+          {PROCESS_STEPS.map((step, i) => (
             <Reveal key={step.index} delay={0.07 * i} y={18}>
-              <div className={`border-t-2 ${barColor} pt-7`}>
-                <span className={`font-serif text-[40px] font-light leading-none text-ivory/90`}>
+              <div className="border-t-2 border-ember-soft/70 pt-7">
+                <span className="font-serif text-[40px] font-light leading-none text-ivory/90">
                   {step.index}
-                  <span className={dotColor}>.</span>
+                  <span className="text-ember-soft">.</span>
                 </span>
                 <h3 className="mt-5 font-serif text-[21px] font-normal leading-snug">
                   {step.title}
@@ -249,8 +228,7 @@ export function Process() {
                 </p>
               </div>
             </Reveal>
-            );
-          })}
+          ))}
         </div>
 
         <Reveal delay={0.1}>
