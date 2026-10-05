@@ -6,8 +6,9 @@
 /* ============================================================
    EMNEX AI — Editorial Design System
    Strict three-colour system (60/30/10):
-   warm cream canvas / deep pine-teal structure / terracotta
-   ember accents — deep colours in small, deliberate doses.
+   cool mist-stone canvas (green family) / deep pine-teal
+   structure / terracotta ember accents — deep colours in
+   small, deliberate doses.
    ============================================================ */
 
 @theme inline {
@@ -17,20 +18,23 @@
   --font-serif: var(--font-fraunces), "Iowan Old Style", Georgia, serif;
 
   /* Brand palette — strict three-colour system:
-     warm cream canvas / deep pine-teal structure / terracotta ember accents.
-     (tints of the same hue are shades, not new colours) */
-  --color-ivory: #f4eee1;
+     cool mist-stone canvas / deep pine-teal structure / terracotta ember
+     accents. Canvas + structure share one green hue family, so the page
+     reads as a single system. (tints of a hue are shades, not new colours)
+     NOTE: token names (ivory/paper/stone) are semantic — "ivory" now
+     carries the mist-stone canvas value. */
+  --color-ivory: #e2e8e3;
   --color-ink: #0f2724;
   --color-charcoal: #22312e;
-  --color-clay: #766b59;
-  --color-line: #ded4bd;
+  --color-clay: #57685f;
+  --color-line: #c7d2c9;
   --color-ember: #a63d28;
   --color-ember-soft: #c65a3b;
   --color-teal: #1d524c;
   --color-teal-soft: #8ab8ae;
-  --color-paper: #fbf8f1;
-  --color-ivory-deep: #e7dfcc;
-  --color-stone-warm: #e7dfcc;
+  --color-paper: #f2f6f2;
+  --color-ivory-deep: #d4ddd5;
+  --color-stone-warm: #d4ddd5;
 
   /* shadcn token bridge (kept for component compatibility) */
   --color-background: var(--background);
@@ -67,59 +71,59 @@
 
 :root {
   --radius: 0.25rem;
-  --background: #f4eee1;
+  --background: #e2e8e3;
   --foreground: #22312e;
-  --card: #fbf8f1;
+  --card: #f2f6f2;
   --card-foreground: #22312e;
-  --popover: #fbf8f1;
+  --popover: #f2f6f2;
   --popover-foreground: #22312e;
   --primary: #0f2724;
-  --primary-foreground: #f4eee1;
-  --secondary: #e7dfcc;
+  --primary-foreground: #e2e8e3;
+  --secondary: #d4ddd5;
   --secondary-foreground: #22312e;
-  --muted: #e7dfcc;
-  --muted-foreground: #766b59;
+  --muted: #d4ddd5;
+  --muted-foreground: #57685f;
   --accent: #a63d28;
-  --accent-foreground: #f4eee1;
+  --accent-foreground: #e2e8e3;
   --destructive: #a63d28;
-  --border: #ded4bd;
-  --input: #ded4bd;
+  --border: #c7d2c9;
+  --input: #c7d2c9;
   --ring: #a63d28;
-  --sidebar: #fbf8f1;
+  --sidebar: #f2f6f2;
   --sidebar-foreground: #22312e;
   --sidebar-primary: #0f2724;
-  --sidebar-primary-foreground: #f4eee1;
-  --sidebar-accent: #e7dfcc;
+  --sidebar-primary-foreground: #e2e8e3;
+  --sidebar-accent: #d4ddd5;
   --sidebar-accent-foreground: #22312e;
-  --sidebar-border: #ded4bd;
+  --sidebar-border: #c7d2c9;
   --sidebar-ring: #a63d28;
 }
 
 .dark {
   --background: #0f2724;
-  --foreground: #f4eee1;
+  --foreground: #e2e8e3;
   --card: #14312d;
-  --card-foreground: #f4eee1;
+  --card-foreground: #e2e8e3;
   --popover: #14312d;
-  --popover-foreground: #f4eee1;
-  --primary: #f4eee1;
+  --popover-foreground: #e2e8e3;
+  --primary: #e2e8e3;
   --primary-foreground: #0f2724;
   --secondary: #14312d;
-  --secondary-foreground: #f4eee1;
+  --secondary-foreground: #e2e8e3;
   --muted: #14312d;
   --muted-foreground: #8ab8ae;
   --accent: #c65a3b;
-  --accent-foreground: #f4eee1;
+  --accent-foreground: #e2e8e3;
   --destructive: #c65a3b;
   --border: rgba(255, 255, 255, 0.14);
   --input: rgba(255, 255, 255, 0.14);
   --ring: #c65a3b;
   --sidebar: #0f2724;
-  --sidebar-foreground: #f4eee1;
-  --sidebar-primary: #f4eee1;
+  --sidebar-foreground: #e2e8e3;
+  --sidebar-primary: #e2e8e3;
   --sidebar-primary-foreground: #0f2724;
   --sidebar-accent: #14312d;
-  --sidebar-accent-foreground: #f4eee1;
+  --sidebar-accent-foreground: #e2e8e3;
   --sidebar-border: rgba(255, 255, 255, 0.14);
   --sidebar-ring: #c65a3b;
 }
@@ -142,7 +146,7 @@
 
   ::selection {
     background: #a63d28;
-    color: #f4eee1;
+    color: #e2e8e3;
   }
 
   @media (prefers-reduced-motion: reduce) {
